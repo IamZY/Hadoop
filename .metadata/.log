@@ -59,3 +59,15 @@ org.apache.http.client.HttpResponseException: Bad Gateway
 	at com.google.common.util.concurrent.AbstractIdleService$DelegateService$1.run(AbstractIdleService.java:62)
 	at com.google.common.util.concurrent.Callables$4.run(Callables.java:122)
 	at java.lang.Thread.run(Unknown Source)
+
+!ENTRY org.eclipse.equinox.p2.metadata.repository 4 1000 2019-05-26 19:48:07.370
+!MESSAGE No repository found at http://www.pramati.com/downloads/eclipse/updates/.
+
+!ENTRY org.eclipse.equinox.p2.metadata.repository 4 1000 2019-05-26 19:49:20.005
+!MESSAGE No repository found at file:/D:/dev/插件/STS插件/sts-bundle/.
+
+!ENTRY org.eclipse.equinox.p2.metadata.repository 4 1000 2019-05-26 19:49:20.038
+!MESSAGE No repository found at jar:file:/D:/dev/插件/STS插件/spring-tool-suite-3.9.4.RELEASE-e4.7.3a-win32-x86_64.zip!/.
+
+!ENTRY org.eclipse.equinox.p2.metadata.repository 4 1000 2019-05-26 19:51:37.293
+!MESSAGE No repository found at http://public.dhe.ibm.com/ibmdl/export/pub/software/websphere/wasdev/updates/bluemixAdapter/oxygen/.
