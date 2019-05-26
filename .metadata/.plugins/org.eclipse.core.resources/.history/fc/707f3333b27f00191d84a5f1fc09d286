@@ -1,0 +1,15 @@
+package cn.itcast.haddp.mr.ii;
+
+import org.apache.hadoop.io.LongWritable;
+import org.apache.hadoop.io.Text;
+import org.apache.hadoop.mapreduce.Mapper;
+
+public class InverseIndexStepA {
+
+	public static class StepOneMapper extends Mapper<LongWritable,Text,Text,LongWritable> {
+
+		
+		
+	}
+
+}

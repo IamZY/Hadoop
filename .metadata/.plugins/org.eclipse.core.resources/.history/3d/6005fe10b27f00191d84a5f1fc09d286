@@ -1,0 +1,14 @@
+package cn.itcast.haddp.mr.ii;
+
+import org.apache.hadoop.mapreduce.Mapper;
+
+public class InverseIndexStepA {
+
+	public static class StepOneMapper extends Mapper{
+		
+	}
+	
+	
+	
+	
+}

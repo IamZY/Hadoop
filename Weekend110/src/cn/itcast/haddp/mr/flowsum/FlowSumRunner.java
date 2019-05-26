@@ -35,6 +35,9 @@ public class FlowSumRunner extends Configured implements Tool{
 		FileInputFormat.setInputPaths(job, new Path(arg0[0]));
 		FileOutputFormat.setOutputPath(job, new Path(arg0[1]));
 		
+//		InputFormat fi = null; 
+//		OutputFormat of = null;
+		
 		
 		return job.waitForCompletion(true) ? 0:1;
 		

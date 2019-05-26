@@ -1,0 +1,64 @@
+package cn.itcast.haddp.mr.ii;
+
+import java.io.IOException;
+
+import org.apache.hadoop.fs.Path;
+import org.apache.hadoop.io.LongWritable;
+import org.apache.hadoop.io.Text;
+import org.apache.hadoop.mapreduce.InputSplit;
+import org.apache.hadoop.mapreduce.Mapper;
+import org.apache.hadoop.mapreduce.Reducer;
+import org.apache.hadoop.mapreduce.lib.input.FileSplit;
+import org.apache.hadoop.util.StringUtils;
+
+public class InverseIndexStepA {
+
+	public static class StepOneMapper extends Mapper<LongWritable, Text, Text, LongWritable> {
+
+		@Override
+		protected void map(LongWritable key, Text value, Mapper<LongWritable, Text, Text, LongWritable>.Context context)
+				throws IOException, InterruptedException {
+
+			String line = value.toString();
+
+			String[] fileds = StringUtils.split(line, '\t');
+
+			FileSplit inputSplit = (FileSplit) context.getInputSplit();
+
+			Path path = inputSplit.getPath();
+
+			String fileName = path.getName();
+
+			for (String filed : fileds) {
+
+				context.write(new Text(filed + "-->" + fileName), new LongWritable(1));
+
+			}
+
+		}
+
+	}
+
+	public static class StepOneReducer extends Reducer<Text, LongWritable, Text, LongWritable> {
+		@Override
+		protected void reduce(Text key, Iterable<LongWritable> values,
+				Reducer<Text, LongWritable, Text, LongWritable>.Context context) throws IOException, InterruptedException {
+			
+			long counter = 0;
+			
+			for(LongWritable value : values) {
+				
+				counter += value.get();
+				
+			}
+			
+			
+			
+			
+			
+			
+			
+		}
+	}
+
+}

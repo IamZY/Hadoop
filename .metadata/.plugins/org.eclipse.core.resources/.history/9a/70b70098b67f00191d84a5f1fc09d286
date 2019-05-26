@@ -1,0 +1,36 @@
+package cn.itcast.haddp.mr.ii;
+
+import java.io.IOException;
+
+import org.apache.commons.lang.StringUtils;
+import org.apache.hadoop.io.LongWritable;
+import org.apache.hadoop.io.Text;
+import org.apache.hadoop.mapreduce.Mapper;
+
+public class InverseIndexStepTwo {
+
+	public static class StepTwoMapper extends Mapper<LongWritable,Text,Text,Text>{
+		
+		@Override
+		protected void map(LongWritable key, Text value, Mapper<LongWritable, Text, Text, Text>.Context context)
+				throws IOException, InterruptedException {
+			
+			String line = value.toString();
+			
+			String[] fileds = StringUtils.split(line, "\t");
+			
+			String[] wordAndFileName = StringUtils.split(fileds[1],"-->");
+			
+			String word = wordAndFileName[0];
+			
+			
+			
+			
+		}
+		
+	}
+	
+	
+	
+	
+}
