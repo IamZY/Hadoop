@@ -242,13 +242,176 @@ source /etc/profile
 + 在linux的eclipse中直接运行main方法，也可以提交到集群中去运行，但是，必须采取以下措施：
         ----在工程src目录下加入 mapred-site.xml  和  yarn-site.xml 
         ----将工程打成jar包(wc.jar)，同时在main方法中添加一个conf的配置参数　conf.set("mapreduce.job.jar","wc.jar");           
-
 + 在windows的eclipse中直接运行main方法，也可以提交给集群中运行，但是因为平台不兼容，需要做很多的设置修改
-  		----要在windows中存放一份hadoop的安装包（解压好的）
-  		----要将其中的lib和bin目录替换成根据你的windows版本重新编译出的文件
-  		----再要配置系统环境变量 HADOOP_HOME  和 PATH
-  		----修改YarnRunner这个类的源码
-  		      
-        
-        
-        
+    ----要在windows中存放一份hadoop的安装包（解压好的）
+      		----要将其中的lib和bin目录替换成根据你的windows版本重新编译出的文件
+      		----再要配置系统环境变量 HADOOP_HOME  和 PATH
+      		----修改YarnRunner这个类的源码
+      		      
+
+# zookeeper
+
+## 上传zk安装包
+
+## 解压
+
+## 配置（先在一台节点上配置）
+​	3.1添加一个zoo.cfg配置文件
+​	$ZOOKEEPER/conf
+​	mv zoo_sample.cfg zoo.cfg
+​	
+
+	3.2修改配置文件（zoo.cfg）
+		dataDir=/itcast/zookeeper-3.4.5/data
+		
+		server.1=itcast05:2888:3888
+		server.2=itcast06:2888:3888
+		server.3=itcast07:2888:3888
+	
+	3.3在（dataDir=/itcast/zookeeper-3.4.5/data）创建一个myid文件，里面内容是server.N中的N（server.2里面内容为2）
+		echo "1" > myid
+	
+	3.4将配置好的zk拷贝到其他节点
+		scp -r /itcast/zookeeper-3.4.5/ itcast06:/itcast/
+		scp -r /itcast/zookeeper-3.4.5/ itcast07:/itcast/
+	
+	3.5注意：在其他节点上一定要修改myid的内容
+		在itcast06应该讲myid的内容改为2 （echo "6" > myid）
+		在itcast07应该讲myid的内容改为3 （echo "7" > myid）
+
+## 启动集群
+
+​	分别启动zk
+
+> /zkServer.sh sta rt
+
+>  /zkServer.sh status
+
+```xml
+zookeeper的默认配置文件为zookeeper/conf/zoo_sample.cfg，需要将其修改为zoo.cfg。其中各配置项的含义，解释如下：
+
+1.tickTime：CS通信心跳时间
+Zookeeper 服务器之间或客户端与服务器之间维持心跳的时间间隔，也就是每个 tickTime 时间就会发送一个心跳。tickTime以毫秒为单位。
+tickTime=2000  
+
+2.initLimit：LF初始通信时限
+集群中的follower服务器(F)与leader服务器(L)之间初始连接时能容忍的最多心跳数（tickTime的数量）。
+initLimit=5  
+
+3.syncLimit：LF同步通信时限
+集群中的follower服务器与leader服务器之间请求和应答之间能容忍的最多心跳数（tickTime的数量）。
+syncLimit=2  
+ 
+4.dataDir：数据文件目录
+Zookeeper保存数据的目录，默认情况下，Zookeeper将写数据的日志文件也保存在这个目录里。
+dataDir=/home/michael/opt/zookeeper/data  
+
+5.clientPort：客户端连接端口
+客户端连接 Zookeeper 服务器的端口，Zookeeper 会监听这个端口，接受客户端的访问请求。
+clientPort=2181 
+
+6.服务器名称与地址：集群信息（服务器编号，服务器地址，LF通信端口，选举端口）
+这个配置项的书写格式比较特殊，规则如下：
+server.N=YYY:A:B 
+
+server.1=itcast05:2888:3888
+server.2=itcast06:2888:3888
+server.3=itcast07:2888:3888
+
+```
+
+# Hive
+
+基于分布式存储 海量数据查询和管理的数据仓库
+是建立在 Hadoop  上的数据仓库基础构架。它提供了一系列的工具，可以用来进行数据提取转化加载（ETL），这是一种可以存储、查询和分析存储在 Hadoop  中的大规模数据的机制。Hive定义了简单的类 SQL  查询语言，称为QL ，它允许熟悉SQL 的用户查询数据。同时，这个语言也允许熟悉 MapReduce  开发者的开发自定义的mapper  和reducer  来处理内建的mapper 和reducer  无法完成的复杂的分析工作。
+
+hive-site.xml
+
+```xml
+<property>
+    <name>javax.jdo.option.ConnectionURL</name>
+    <value>jdbc:mysql://weekend01:3306/hive?createDatabaseIfNotExist=true</value>
+</property>
+<property>
+    <name>javax.jdo.option.ConnectionDriverName</name>
+    <value>com.mysql.jdbc.Driver</value>
+</property>
+<property>
+    <name>javax.jdo.option.ConnectionUserName</name>
+    <value>root</value>
+</property>
+<property>
+    <name>javax.jdo.option.ConnectionPassword</name>
+    <value>root</value>
+</property>
+```
+
+
+
+# mysql 安装
+
+```xml
+ 1、  查看是否安装了mysql数据库：rpm -qa | grep mysql
+
+  2、  强制卸载mysql数据库：rpm -e nodeps mysql
+
+  3、  通过命令查看yum上提供的数据库可下载版本：yum list | grep mysql
+
+ 4、安装数据库：  yum -y install mysql-server mysql-devel
+
+  5、启动数据库：  service mysqld start
+
+  6、停止数据库  service mysqld stop                                                                                           
+
+  8、查看是否是开机启动(若2~5都是on则表明是开机启动)：
+
+  chkconfig --list | grep mysqld
+
+  9、若2~5都是off则用以下命令设置：  chkconfig mysqld on 
+
+  10、  chkconfig --list | grep mysqld
+
+  11、启动mysql： service mysqld start
+
+  12、设置用户及密码(输入以下命令后两次回车，及第一次密码直接回车即可)： mysqladmin -u root -p password 'root'
+
+  13、测试登录mysql：  mysql -u root -p
+
+  14、如若远程需要进行授权操作：
+
+        GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY '123456' WITH GRANT OPTION;
+         FLUSH PRIVILEGES;
+        grant all privileges on *.* to root@"hadoop01" identified by "123456" with grant option;
+        FLUSH PRIVILEGES;
+
+  15、查看数据库的配置文件： cat /etc/my.cnf   
+
+（其中的datadir是MySQL数据库的存放路径，表示数据在CentOS里的/var/lib/mysql目录下）
+
+  16、进入mysql安装路径查看： cd /var/lib/mysql
+
+  17、停止mysql服务： service mysqld stop
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

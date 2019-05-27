@@ -68,6 +68,16 @@ public class InverseIndexStepTwo {
 
 		Job job = Job.getInstance(conf);
 
+		
+		// 多个job 分别提交  不建议使用
+//		Job job_one = Job.getInstance(conf);
+//		job_one.setJarByClass(InverseIndexStepOne.class);
+//		
+//		Job job_two = Job.getInstance(conf);
+//		job_two.setJarByClass(InverseIndexStepTwo.class);
+		
+		
+		
 		job.setJarByClass(InverseIndexStepTwo.class);
 
 		job.setMapperClass(StepTwoMapper.class);
