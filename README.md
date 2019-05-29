@@ -884,14 +884,102 @@ public class HbaseDemo {
 
 # Storm
 
+Storm是一个开源的分布式实时计算系统，可以简单、可靠的处理大量的数据流。被称作“实时的hadoop”。Storm有很多使用场景：如实时分析，在线机器学习，持续计算， 分布式RPC，ETL等等。Storm支持水平扩展，具有高容错性，保证每个消息都会得到处理，而且处理速度很快（在一个小集群中，每个结点每秒可以处理
+数以百万计的消息）。Storm的部署和运维都很便捷，而且更为重要的是可以使用任意编程语言来开发应用。
 
++ 在深入理解Storm之前，需要了解一些概念：
 
+  Topologies ： 拓扑，也俗称一个任务
 
-​	
+  Spouts ： 拓扑的消息源
 
+  Bolts ： 拓扑的处理逻辑单元
 
+  tuple：消息元组
 
+  Streams ： 流
 
+  Stream groupings ：流的分组策略
+
+  Tasks ： 任务处理单元
+
+  Executor :工作线程
+
+  Workers ：工作进程
+
+  Configuration ： topology的配置
+
++ 配置
+
+  ```xml
+  1、安装一个zookeeper集群
+  
+  2、上传storm的安装包，解压
+  
+  3、修改配置文件storm.yaml
+  
+  #所使用的zookeeper集群主机
+  storm.zookeeper.servers:
+       - "weekend05"
+       - "weekend06"
+       - "weekend07"
+  
+  #nimbus所在的主机名
+  nimbus.host: "weekend05"
+  
+  // 配置supervisor的worder数  默认四个进程（选配）
+  supervisor.slots.ports
+  -6701
+  -6702
+  -6703
+  -6704
+  -6705
+  
+  
+  启动storm
+  在nimbus主机上
+  nohup ./storm nimbus 1>/dev/null 2>&1 &
+  nohup ./storm ui 1>/dev/null 2>&1 &
+  
+  在supervisor主机上
+  nohup ./storm supervisor 1>/dev/null 2>&1 &
+  
+  
+  
+  
+  storm的深入学习：
+  			分布式共享锁的实现
+  			事务topology的实现机制及开发模式
+  			在具体场景中的跟其他框架的整合（flume/activeMQ/kafka(分布式的消息队列系统)       /redis/hbase/mysql cluster）
+  
+  
+  ```
+
++ ui
+
+  > 1、启动nimbus后台程序
+  >  命令格式：storm nimbus
+  >
+  > 
+  >
+  > 2、启动supervisor后台程序
+  >  命令格式：storm supervisor
+  >
+  > 
+  >
+  > 3、启动ui服务 http://weekend110:8080/index.html
+  >  命令格式：storm ui
+
++ 提交到集群
+
+  ```XML
+  4、提交Topologies
+  命令格式：storm jar 【jar路径】 【拓扑包名.拓扑类名】【stormIP地址】【storm端口】【拓扑名称】【参数】eg：storm jar /home/storm/storm-starter.jar storm.starter.WordCountTopology wordcountTop;
+  #提交storm-starter.jar到远程集群，并启动wordcountTop拓扑。
+  
+  ```
+
+  
 
 
 

@@ -1746,3 +1746,119 @@ java.net.ConnectException: Connection timed out: connect
 	at org.eclipse.ecf.provider.filetransfer.httpclient4.HttpClientRetrieveFileTransfer$1.performFileTransfer(HttpClientRetrieveFileTransfer.java:1071)
 	at org.eclipse.ecf.filetransfer.FileTransferJob.run(FileTransferJob.java:74)
 	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:56)
+
+!ENTRY org.eclipse.jface.text 2 0 2019-05-29 19:52:40.447
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.number'
+
+!ENTRY org.eclipse.jface.text 2 0 2019-05-29 19:52:40.447
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.round'
+
+!ENTRY org.eclipse.recommenders.types.rcp 1 4 2019-05-29 19:57:46.639
+!MESSAGE Full project indexing required:
+  [+] C:\Program Files\Java\jre1.8.0_161\lib\charsets.jar
+  [+] C:\Program Files\Java\jre1.8.0_161\lib\ext\access-bridge-64.jar
+  [+] C:\Program Files\Java\jre1.8.0_161\lib\ext\cldrdata.jar
+  [+] C:\Program Files\Java\jre1.8.0_161\lib\ext\dns_sd.jar
+  [+] C:\Program Files\Java\jre1.8.0_161\lib\ext\dnsns.jar
+  [+] C:\Program Files\Java\jre1.8.0_161\lib\ext\jaccess.jar
+  [+] C:\Program Files\Java\jre1.8.0_161\lib\ext\jfxrt.jar
+  [+] C:\Program Files\Java\jre1.8.0_161\lib\ext\localedata.jar
+  [+] C:\Program Files\Java\jre1.8.0_161\lib\ext\nashorn.jar
+  [+] C:\Program Files\Java\jre1.8.0_161\lib\ext\sunec.jar
+  [+] C:\Program Files\Java\jre1.8.0_161\lib\ext\sunjce_provider.jar
+  [+] C:\Program Files\Java\jre1.8.0_161\lib\ext\sunmscapi.jar
+  [+] C:\Program Files\Java\jre1.8.0_161\lib\ext\sunpkcs11.jar
+  [+] C:\Program Files\Java\jre1.8.0_161\lib\ext\zipfs.jar
+  [+] C:\Program Files\Java\jre1.8.0_161\lib\jce.jar
+  [+] C:\Program Files\Java\jre1.8.0_161\lib\jfr.jar
+  [+] C:\Program Files\Java\jre1.8.0_161\lib\jsse.jar
+  [+] C:\Program Files\Java\jre1.8.0_161\lib\resources.jar
+  [+] C:\Program Files\Java\jre1.8.0_161\lib\rt.jar
+  [+] D:\src\Hadoop\weekend110-storm\lib\asm-4.0.jar
+  [+] D:\src\Hadoop\weekend110-storm\lib\carbonite-1.4.0.jar
+  [+] D:\src\Hadoop\weekend110-storm\lib\chill-java-0.3.5.jar
+  [+] D:\src\Hadoop\weekend110-storm\lib\clj-stacktrace-0.2.4.jar
+  [+] D:\src\Hadoop\weekend110-storm\lib\clj-time-0.4.1.jar
+  [+] D:\src\Hadoop\weekend110-storm\lib\clojure-1.5.1.jar
+  [+] D:\src\Hadoop\weekend110-storm\lib\clout-1.0.1.jar
+  [+] D:\src\Hadoop\weekend110-storm\lib\commons-codec-1.6.jar
+  [+] D:\src\Hadoop\weekend110-storm\lib\commons-exec-1.1.jar
+  [+] D:\src\Hadoop\weekend110-storm\lib\commons-fileupload-1.2.1.jar
+  [+] D:\src\Hadoop\weekend110-storm\lib\commons-io-2.4.jar
+  [+] D:\src\Hadoop\weekend110-storm\lib\commons-lang-2.5.jar
+  [+] D:\src\Hadoop\weekend110-storm\lib\commons-logging-1.1.3.jar
+  [+] D:\src\Hadoop\weekend110-storm\lib\compojure-1.1.3.jar
+  [+] D:\src\Hadoop\weekend110-storm\lib\core.incubator-0.1.0.jar
+  [+] D:\src\Hadoop\weekend110-storm\lib\curator-client-2.4.0.jar
+  [+] D:\src\Hadoop\weekend110-storm\lib\curator-framework-2.4.0.jar
+  [+] D:\src\Hadoop\weekend110-storm\lib\disruptor-2.10.1.jar
+  [+] D:\src\Hadoop\weekend110-storm\lib\guava-13.0.jar
+  [+] D:\src\Hadoop\weekend110-storm\lib\hiccup-0.3.6.jar
+  [+] D:\src\Hadoop\weekend110-storm\lib\httpclient-4.3.3.jar
+  [+] D:\src\Hadoop\weekend110-storm\lib\httpcore-4.3.2.jar
+  [+] D:\src\Hadoop\weekend110-storm\lib\jetty-6.1.26.jar
+  [+] D:\src\Hadoop\weekend110-storm\lib\jetty-util-6.1.26.jar
+  [+] D:\src\Hadoop\weekend110-storm\lib\jgrapht-core-0.9.0.jar
+  [+] D:\src\Hadoop\weekend110-storm\lib\jline-2.11.jar
+  [+] D:\src\Hadoop\weekend110-storm\lib\joda-time-2.0.jar
+  [+] D:\src\Hadoop\weekend110-storm\lib\json-simple-1.1.jar
+  [+] D:\src\Hadoop\weekend110-storm\lib\kryo-2.21.jar
+  [+] D:\src\Hadoop\weekend110-storm\lib\log4j-over-slf4j-1.6.6.jar
+  [+] D:\src\Hadoop\weekend110-storm\lib\logback-classic-1.0.6.jar
+  [+] D:\src\Hadoop\weekend110-storm\lib\logback-core-1.0.6.jar
+  [+] D:\src\Hadoop\weekend110-storm\lib\math.numeric-tower-0.0.1.jar
+  [+] D:\src\Hadoop\weekend110-storm\lib\minlog-1.2.jar
+  [+] D:\src\Hadoop\weekend110-storm\lib\netty-3.2.2.Final.jar
+  [+] D:\src\Hadoop\weekend110-storm\lib\netty-3.6.3.Final.jar
+  [+] D:\src\Hadoop\weekend110-storm\lib\objenesis-1.2.jar
+  [+] D:\src\Hadoop\weekend110-storm\lib\reflectasm-1.07-shaded.jar
+  [+] D:\src\Hadoop\weekend110-storm\lib\ring-core-1.1.5.jar
+  [+] D:\src\Hadoop\weekend110-storm\lib\ring-devel-0.3.11.jar
+  [+] D:\src\Hadoop\weekend110-storm\lib\ring-jetty-adapter-0.3.11.jar
+  [+] D:\src\Hadoop\weekend110-storm\lib\ring-servlet-0.3.11.jar
+  [+] D:\src\Hadoop\weekend110-storm\lib\servlet-api-2.5-20081211.jar
+  [+] D:\src\Hadoop\weekend110-storm\lib\servlet-api-2.5.jar
+  [+] D:\src\Hadoop\weekend110-storm\lib\slf4j-api-1.6.5.jar
+  [+] D:\src\Hadoop\weekend110-storm\lib\snakeyaml-1.11.jar
+  [+] D:\src\Hadoop\weekend110-storm\lib\storm-core-0.9.2-incubating.jar
+  [+] D:\src\Hadoop\weekend110-storm\lib\tools.cli-0.2.4.jar
+  [+] D:\src\Hadoop\weekend110-storm\lib\tools.logging-0.2.3.jar
+  [+] D:\src\Hadoop\weekend110-storm\lib\tools.macro-0.1.0.jar
+  [+] D:\src\Hadoop\weekend110-storm\lib\zookeeper-3.4.5.jar
+
+!STACK 0
+org.eclipse.recommenders.utils.Logs$LogTraceException
+	at org.eclipse.recommenders.utils.Logs$LogTraceException.newTrace(Logs.java:381)
+	at org.eclipse.recommenders.utils.Logs.log(Logs.java:134)
+	at org.eclipse.recommenders.internal.types.rcp.ProjectTypesIndex.needsRebuild(ProjectTypesIndex.java:169)
+	at org.eclipse.recommenders.internal.types.rcp.ProjectTypesIndex.startUp(ProjectTypesIndex.java:122)
+	at com.google.common.util.concurrent.AbstractIdleService$2$1.run(AbstractIdleService.java:54)
+	at com.google.common.util.concurrent.Callables$3.run(Callables.java:93)
+	at java.lang.Thread.run(Unknown Source)
+
+!ENTRY org.eclipse.recommenders.rcp 4 18 2019-05-29 20:07:27.119
+!MESSAGE Failed to resolve selection in ‘=weekend110-storm/src<cn.itcast.storm{UpperBolt.java’ at offset 750.
+!STACK 1
+Java Model Exception: Java Model Status [Index out of bounds]
+	at org.eclipse.jdt.internal.core.Openable.codeSelect(Openable.java:158)
+	at org.eclipse.jdt.internal.core.CompilationUnit.codeSelect(CompilationUnit.java:378)
+	at org.eclipse.jdt.internal.core.CompilationUnit.codeSelect_aroundBody0(CompilationUnit.java:372)
+	at org.eclipse.jdt.internal.core.CompilationUnit$AjcClosure1.run(CompilationUnit.java:1)
+	at org.eclipse.contribution.jdt.itdawareness.ITDAwarenessAspect.ajc$around$org_eclipse_contribution_jdt_itdawareness_ITDAwarenessAspect$6$3f3ffce8proceed(ITDAwarenessAspect.aj:311)
+	at org.eclipse.contribution.jdt.itdawareness.ITDAwarenessAspect.ajc$around$org_eclipse_contribution_jdt_itdawareness_ITDAwarenessAspect$6$3f3ffce8(ITDAwarenessAspect.aj:312)
+	at org.eclipse.jdt.internal.core.CompilationUnit.codeSelect(CompilationUnit.java:372)
+	at org.eclipse.recommenders.internal.rcp.JavaElementSelections.resolveJavaElementFromTypeRootInEditor(JavaElementSelections.java:138)
+	at org.eclipse.recommenders.internal.rcp.JavaElementSelections.resolveJavaElementFromEditor(JavaElementSelections.java:119)
+	at org.eclipse.recommenders.internal.rcp.JavaElementSelections.resolveJavaElementFromEditor(JavaElementSelections.java:102)
+	at org.eclipse.recommenders.internal.rcp.JavaElementSelectionService.handleSelectionInEditor(JavaElementSelectionService.java:108)
+	at org.eclipse.recommenders.internal.rcp.JavaElementSelectionService.access$1(JavaElementSelectionService.java:105)
+	at org.eclipse.recommenders.internal.rcp.JavaElementSelectionService$1.run(JavaElementSelectionService.java:82)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(Unknown Source)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+!SUBENTRY 1 org.eclipse.jdt.core 4 980 2019-05-29 20:07:27.119
+!MESSAGE Index out of bounds
