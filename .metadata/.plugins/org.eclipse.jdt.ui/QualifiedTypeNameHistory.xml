@@ -10,4 +10,14 @@
 <fullyQualifiedTypeName name="org.apache.commons.lang.StringUtils"/>
 <fullyQualifiedTypeName name="org.apache.hadoop.mapreduce.Reducer"/>
 <fullyQualifiedTypeName name="org.apache.hadoop.io.Text"/>
+<fullyQualifiedTypeName name="org.apache.hadoop.hive.ql.exec.UDF"/>
+<fullyQualifiedTypeName name="cn.itcast.bigdata.PhoneNBToArea"/>
+<fullyQualifiedTypeName name="java.util.HashMap"/>
+<fullyQualifiedTypeName name="org.codehaus.jettison.mapped.Configuration"/>
+<fullyQualifiedTypeName name="org.apache.hadoop.conf.Configuration"/>
+<fullyQualifiedTypeName name="org.apache.hadoop.hbase.HBaseConfiguration"/>
+<fullyQualifiedTypeName name="org.apache.hadoop.hbase.client.HBaseAdmin"/>
+<fullyQualifiedTypeName name="org.apache.hadoop.hbase.HTableDescriptor"/>
+<fullyQualifiedTypeName name="org.apache.hadoop.hbase.TableName"/>
+<fullyQualifiedTypeName name="org.apache.hadoop.hbase.HColumnDescriptor"/>
 </qualifiedTypeNameHistroy>

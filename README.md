@@ -346,7 +346,222 @@ hive-site.xml
 </property>
 ```
 
++ hive语法
 
+  ```	xml
+  set hive.cli.print.header=true;
+  
+  CREATE TABLE page_view(viewTime INT, userid BIGINT,
+       page_url STRING, referrer_url STRING,
+       ip STRING COMMENT 'IP Address of the User')
+   COMMENT 'This is the page view table'
+   PARTITIONED BY(dt STRING, country STRING)
+   ROW FORMAT DELIMITED
+     FIELDS TERMINATED BY '\001'
+  STORED AS SEQUENCEFILE;   TEXTFILE
+  
+  //sequencefile
+  create table tab_ip_seq(id int,name string,ip string,country string) 
+      row format delimited
+      fields terminated by ','
+      stored as sequencefile;
+  insert overwrite table tab_ip_seq select * from tab_ext;
+  
+  
+  //create & load
+  create table tab_ip(id int,name string,ip string,country string) 
+      row format delimited
+      fields terminated by ','
+      stored as textfile;
+  load data local inpath '/home/hadoop/ip.txt' into table tab_ext;
+  
+  //external 不要求数据一定要放在hdfs上的user下的table目录中
+  CREATE EXTERNAL TABLE tab_ip_ext(id int, name string,
+       ip STRING,
+       country STRING)
+   ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
+   STORED AS TEXTFILE
+   LOCATION '/external/hive';   -- 关联hdfs下的数据目录
+   
+  
+  // CTAS  用于创建一些临时表存储中间结果
+  CREATE TABLE tab_ip_ctas
+     AS
+  SELECT id new_id, name new_name, ip new_ip,country new_country
+  FROM tab_ip_ext
+  SORT BY new_id;
+  
+  
+  //insert from select   用于向临时表中追加中间结果数据
+  create table tab_ip_like like tab_ip;
+  
+  insert overwrite table tab_ip_like
+      select * from tab_ip;
+  
+  //CLUSTER <--相对高级一点，你可以放在有精力的时候才去学习>
+  create table tab_ip_cluster(id int,name string,ip string,country string)
+  clustered by(id) into 3 buckets;
+  
+  load data local inpath '/home/hadoop/ip.txt' overwrite into table tab_ip_cluster;
+  set hive.enforce.bucketing=true;
+  insert into table tab_ip_cluster select * from tab_ip;
+  
+  select * from tab_ip_cluster tablesample(bucket 2 out of 3 on id); 
+  
+  
+  
+  //PARTITION  <!--分区 -->
+  create table tab_ip_part(id int,name string,ip string,country string) 
+      partitioned by (part_flag string)
+      row format delimited fields terminated by ',';
+      
+  load data local inpath '/home/hadoop/ip.txt' overwrite into table tab_ip_part
+       partition(part_flag='part1');
+      
+      
+  load data local inpath '/home/hadoop/ip_part2.txt' overwrite into table tab_ip_part
+       partition(part_flag='part2');
+  
+  select * from tab_ip_part;
+  
+  select * from tab_ip_part  where part_flag='part2';
+  select count(*) from tab_ip_part  where part_flag='part2';
+  
+  
+  alter table tab_ip change id id_alter string;
+  ALTER TABLE tab_cts ADD PARTITION (partCol = 'dt') location '/external/hive/dt';
+  
+  show partitions tab_ip_part;
+  
+  
+     
+  //write to hdfs
+  insert overwrite local directory '/home/hadoop/hivetemp/test.txt' select * from tab_ip_part where part_flag='part1';    
+  insert overwrite directory '/hiveout.txt' select * from tab_ip_part where part_flag='part1';
+  
+  
+  
+  //array 
+  create table tab_array(a array<int>,b array<string>)
+  row format delimited
+  fields terminated by '\t'
+  collection items terminated by ',';
+  
+  示例数据
+  tobenbrone,laihama,woshishui     13866987898,13287654321
+  abc,iloveyou,itcast     13866987898,13287654321
+  
+  
+  select a[0] from tab_array;
+  select * from tab_array where array_contains(b,'word');
+  insert into table tab_array select array(0),array(name,ip) from tab_ext t; 
+  
+  //map
+  create table tab_map(name string,info map<string,string>)
+  row format delimited
+  fields terminated by '\t'
+  collection items terminated by ';'
+  map keys terminated by ':';
+  
+  示例数据：
+  fengjie			age:18;size:36A;addr:usa
+  furong	    age:28;size:39C;addr:beijing;weight:180KG
+  
+  
+  load data local inpath '/home/hadoop/hivetemp/tab_map.txt' overwrite into table tab_map;
+  insert into table tab_map select name,map('name',name,'ip',ip) from tab_ext; 
+  
+  //struct
+  create table tab_struct(name string,info struct<age:int,tel:string,addr:string>)
+  row format delimited
+  fields terminated by '\t'
+  collection items terminated by ','
+  
+  load data local inpath '/home/hadoop/hivetemp/tab_st.txt' overwrite into table tab_struct;
+  insert into table tab_struct select name,named_struct('age',id,'tel',name,'addr',country) from tab_ext;
+  
+  
+  <!-- 脚本 -->
+  
+  //cli shell
+  hive -S -e 'select country,count(*) from tab_ext' > /home/hadoop/hivetemp/e.txt  
+  有了这种执行机制，就使得我们可以利用脚本语言（bash shell,python）进行hql语句的批量执行
+  
+  
+  select * from tab_ext sort by id desc limit 5;
+  
+  select a.ip,b.book from tab_ext a join tab_ip_book b on(a.name=b.name);
+  
+  
+  
+  
+  //UDF
+  select if(id=1,first,no-first),name from tab_ext;
+  <!-- 编写java类 进行对数据的操作-->
+  hive>add jar /home/hadoop/myudf.jar;
+  hive>CREATE TEMPORARY FUNCTION my_lower AS 'org.dht.Lower';
+  select my_upper(name) from tab_ext;  
+  
+  
+  
+  ```
+
++ 脚本
+
+  > 在源文件下面 shell脚本编程
+  >
+  > hive -S -e 'select * from t_order*;'
+
+  ```xml
+  <!--
+  	自定义函数
+  	select getarea(phone),upflow,downflow from t_flow
+  -->
+  13851515129,beijing,220,300
+  13851512129,nanjing,210,310
+  13843534129,tianjing,120,320
+  13812335129,dongjing,320,340
+  ```
+
+  ```java
+  package cn.itcast.bigdata;
+  
+  import java.util.HashMap;
+  
+  import org.apache.hadoop.hive.ql.exec.UDF;
+  
+  public class PhoneNBToArea extends UDF {
+  
+  	
+  	private static HashMap<String,String> areaMap = new HashMap<>();
+  	
+  	static {
+  		areaMap.put("138", "beijing");
+  		areaMap.put("139", "tianjing");
+  		areaMap.put("136", "nanjing");		
+  	}
+  	
+  	
+  	public String evaluate(String pnb) {
+  		
+  		String result = areaMap.get(pnb.toString().substring(0, 3) == null ? (pnb + " huoxing") : (pnb + " "+pnb.toString().substring(0, 3)));
+  		
+  		return result;
+  	}
+  	
+  }
+  
+  
+  //UDF
+  select if(id=1,first,no-first),name from tab_ext;
+  <!-- 编写java类 进行对数据的操作-->
+  hive>add jar /home/hadoop/myudf.jar;
+  hive>CREATE TEMPORARY FUNCTION my_lower AS 'cn.itcast.bigdata.PhoneNBToArea';
+  select getarea(phone) from tab_ext;  
+  
+  ```
+
+  
 
 # mysql 安装
 
@@ -362,7 +577,6 @@ hive-site.xml
   5、启动数据库：  service mysqld start
 
   6、停止数据库  service mysqld stop                                                                                           
-
   8、查看是否是开机启动(若2~5都是on则表明是开机启动)：
 
   chkconfig --list | grep mysqld
@@ -393,7 +607,287 @@ hive-site.xml
   17、停止mysql服务： service mysqld stop
 ```
 
+# HBase
 
+1.上传hbase安装包
+
+2.解压
+
+3.配置hbase集群，要修改3个文件（首先zk集群已经安装好了）
+	注意：要把hadoop的hdfs-site.xml和core-site.xml 放到hbase/conf下
+	
+
+```xml
+3.1修改hbase-env.sh
+export JAVA_HOME=/usr/java/jdk1.7.0_55
+//告诉hbase使用外部的zk
+export HBASE_MANAGES_ZK=false
+
+vim hbase-site.xml
+<configuration>
+	<!-- 指定hbase在HDFS上存储的路径 -->
+	<!-- 需要和hdfs主机节点名对应 -->
+    <property>
+            <name>hbase.rootdir</name>
+            <value>hdfs://weekend110:9000/hbase</value>
+    </property>
+	<!-- 指定hbase是分布式的 -->
+    <property>
+            <name>hbase.cluster.distributed</name>
+            <value>true</value>
+    </property>
+	<!-- 指定zk的地址，多个用“,”分割 -->
+    <property>
+            <name>hbase.zookeeper.quorum</name>
+            <value>weekend04,weekend05,weekend06</value>
+    </property>
+</configuration>
+
+vim regionservers
+weekend03
+weekend04
+weekend05
+weekend06
+
+3.2拷贝hbase到其他节点
+	scp -r /weekend/hbase-0.96.2-hadoop2/ weekend02:/weekend/
+	scp -r /weekend/hbase-0.96.2-hadoop2/ weekend03:/weekend/
+	scp -r /weekend/hbase-0.96.2-hadoop2/ weekend04:/weekend/
+	scp -r /weekend/hbase-0.96.2-hadoop2/ weekend05:/weekend/
+	scp -r /weekend/hbase-0.96.2-hadoop2/ weekend06:/weekend/
+```
+4.将配置好的HBase拷贝到每一个节点并同步时间。
+
+5.启动所有的hbase
+	分别启动zk
+		./zkServer.sh start
+	启动hbase集群
+		start-dfs.sh
+	启动hbase，在主节点上运行：
+		start-hbase.sh
+6.通过浏览器访问hbase管理页面
+	192.168.1.201:60010
+7.为保证集群的可靠性，要启动多个HMaster
+	hbase-daemon.sh start master
+
+## Demo
+
+```java
+package cn.itcast.bigdata.hbase;
+
+
+import java.util.List;
+
+import org.apache.hadoop.conf.Configuration;
+import org.apache.hadoop.hbase.Cell;
+import org.apache.hadoop.hbase.HBaseConfiguration;
+import org.apache.hadoop.hbase.HColumnDescriptor;
+import org.apache.hadoop.hbase.HTableDescriptor;
+import org.apache.hadoop.hbase.KeyValue;
+import org.apache.hadoop.hbase.TableName;
+import org.apache.hadoop.hbase.client.Delete;
+import org.apache.hadoop.hbase.client.Get;
+import org.apache.hadoop.hbase.client.HBaseAdmin;
+import org.apache.hadoop.hbase.client.HTable;
+import org.apache.hadoop.hbase.client.Put;
+import org.apache.hadoop.hbase.client.Result;
+import org.apache.hadoop.hbase.client.ResultScanner;
+import org.apache.hadoop.hbase.client.Scan;
+import org.apache.hadoop.hbase.filter.BinaryComparator;
+import org.apache.hadoop.hbase.filter.BinaryPrefixComparator;
+import org.apache.hadoop.hbase.filter.ByteArrayComparable;
+import org.apache.hadoop.hbase.filter.ColumnPrefixFilter;
+import org.apache.hadoop.hbase.filter.CompareFilter.CompareOp;
+import org.apache.hadoop.hbase.filter.FamilyFilter;
+import org.apache.hadoop.hbase.filter.Filter;
+import org.apache.hadoop.hbase.filter.MultipleColumnPrefixFilter;
+import org.apache.hadoop.hbase.filter.PrefixFilter;
+import org.apache.hadoop.hbase.filter.QualifierFilter;
+import org.apache.hadoop.hbase.filter.RegexStringComparator;
+import org.apache.hadoop.hbase.filter.RowFilter;
+import org.apache.hadoop.hbase.filter.SingleColumnValueFilter;
+import org.apache.hadoop.hbase.filter.SubstringComparator;
+import org.apache.hadoop.hbase.master.TableNamespaceManager;
+import org.apache.hadoop.hbase.util.Bytes;
+import org.junit.Before;
+import org.junit.Test;
+
+public class HbaseDemo {
+
+	private Configuration conf = null;
+	
+	@Before
+	public void init(){
+		conf = HBaseConfiguration.create();
+		conf.set("hbase.zookeeper.quorum", "weekend05,weekend06,weekend07");
+	}
+	
+	@Test
+	public void testDrop() throws Exception{
+		HBaseAdmin admin = new HBaseAdmin(conf);
+		admin.disableTable("account");
+		admin.deleteTable("account");
+		admin.close();
+	}
+	
+	@Test
+	public void testPut() throws Exception{
+		HTable table = new HTable(conf, "person_info");
+		Put p = new Put(Bytes.toBytes("person_rk_bj_zhang_000002"));
+		p.add("base_info".getBytes(), "name".getBytes(), "zhangwuji".getBytes());
+		table.put(p);
+		table.close();
+	}
+	
+	@Test
+	public void testGet() throws Exception{
+		HTable table = new HTable(conf, "person_info");
+		Get get = new Get(Bytes.toBytes("person_rk_bj_zhang_000001"));
+		get.setMaxVersions(5);
+		Result result = table.get(get);
+		List<Cell> cells = result.listCells();
+		
+//			result.getValue(family, qualifier);  可以从result中直接取出一个特定的value
+		
+		//遍历出result中所有的键值对
+		for(KeyValue kv : result.list()){
+			String family = new String(kv.getFamily());
+			System.out.println(family);
+			String qualifier = new String(kv.getQualifier());
+			System.out.println(qualifier);
+			System.out.println(new String(kv.getValue()));
+			
+		}
+		table.close();
+	}
+	
+	/**
+	 * 多种过滤条件的使用方法
+	 * @throws Exception
+	 */
+	@Test
+	public void testScan() throws Exception{
+		HTable table = new HTable(conf, "person_info".getBytes());
+		Scan scan = new Scan(Bytes.toBytes("person_rk_bj_zhang_000001"), Bytes.toBytes("person_rk_bj_zhang_000002"));
+		
+		//前缀过滤器----针对行键
+		Filter filter = new PrefixFilter(Bytes.toBytes("rk"));
+		
+		//行过滤器
+		ByteArrayComparable rowComparator = new BinaryComparator(Bytes.toBytes("person_rk_bj_zhang_000001"));
+		RowFilter rf = new RowFilter(CompareOp.LESS_OR_EQUAL, rowComparator);
+		
+		/**
+         * 假设rowkey格式为：创建日期_发布日期_ID_TITLE
+         * 目标：查找  发布日期  为  2014-12-21  的数据
+         */
+        rf = new RowFilter(CompareOp.EQUAL , new SubstringComparator("_2014-12-21_"));
+		
+		
+		//单值过滤器 1 完整匹配字节数组
+		new SingleColumnValueFilter("base_info".getBytes(), "name".getBytes(), CompareOp.EQUAL, "zhangsan".getBytes());
+		//单值过滤器2 匹配正则表达式
+		ByteArrayComparable comparator = new RegexStringComparator("zhang.");
+		new SingleColumnValueFilter("info".getBytes(), "NAME".getBytes(), CompareOp.EQUAL, comparator);
+
+		//单值过滤器2 匹配是否包含子串,大小写不敏感
+		comparator = new SubstringComparator("wu");
+		new SingleColumnValueFilter("info".getBytes(), "NAME".getBytes(), CompareOp.EQUAL, comparator);
+
+		//键值对元数据过滤-----family过滤----字节数组完整匹配
+        FamilyFilter ff = new FamilyFilter(
+                CompareOp.EQUAL , 
+                new BinaryComparator(Bytes.toBytes("base_info"))   //表中不存在inf列族，过滤结果为空
+                );
+        //键值对元数据过滤-----family过滤----字节数组前缀匹配
+        ff = new FamilyFilter(
+                CompareOp.EQUAL , 
+                new BinaryPrefixComparator(Bytes.toBytes("inf"))   //表中存在以inf打头的列族info，过滤结果为该列族所有行
+                );
+		
+        
+       //键值对元数据过滤-----qualifier过滤----字节数组完整匹配
+        
+        filter = new QualifierFilter(
+                CompareOp.EQUAL , 
+                new BinaryComparator(Bytes.toBytes("na"))   //表中不存在na列，过滤结果为空
+                );
+        filter = new QualifierFilter(
+                CompareOp.EQUAL , 
+                new BinaryPrefixComparator(Bytes.toBytes("na"))   //表中存在以na打头的列name，过滤结果为所有行的该列数据
+        		);
+		
+        //基于列名(即Qualifier)前缀过滤数据的ColumnPrefixFilter
+        filter = new ColumnPrefixFilter("na".getBytes());
+        
+        //基于列名(即Qualifier)多个前缀过滤数据的MultipleColumnPrefixFilter
+        byte[][] prefixes = new byte[][] {Bytes.toBytes("na"), Bytes.toBytes("me")};
+        filter = new MultipleColumnPrefixFilter(prefixes);
+ 
+        //为查询设置过滤条件
+        scan.setFilter(filter);
+        
+        
+		scan.addFamily(Bytes.toBytes("base_info"));
+		ResultScanner scanner = table.getScanner(scan);
+		for(Result r : scanner){
+			/**
+			for(KeyValue kv : r.list()){
+				String family = new String(kv.getFamily());
+				System.out.println(family);
+				String qualifier = new String(kv.getQualifier());
+				System.out.println(qualifier);
+				System.out.println(new String(kv.getValue()));
+			}
+			*/
+			//直接从result中取到某个特定的value
+			byte[] value = r.getValue(Bytes.toBytes("base_info"), Bytes.toBytes("name"));
+			System.out.println(new String(value));
+		}
+		table.close();
+	}
+	
+	
+	@Test
+	public void testDel() throws Exception{
+		HTable table = new HTable(conf, "user");
+		Delete del = new Delete(Bytes.toBytes("rk0001"));
+		del.deleteColumn(Bytes.toBytes("data"), Bytes.toBytes("pic"));
+		table.delete(del);
+		table.close();
+	}
+	
+	
+	
+	
+	public static void main(String[] args) throws Exception {
+		Configuration conf = HBaseConfiguration.create();
+//		conf.set("hbase.zookeeper.quorum", "weekend05:2181,weekend06:2181,weekend07:2181");
+		HBaseAdmin admin = new HBaseAdmin(conf);
+		
+		TableName tableName = TableName.valueOf("person_info");
+		HTableDescriptor td = new HTableDescriptor(tableName);
+		HColumnDescriptor cd = new HColumnDescriptor("base_info");
+		cd.setMaxVersions(10);
+		td.addFamily(cd);
+		admin.createTable(td);
+		
+		admin.close();
+
+	}
+	
+	
+
+}
+
+```
+
+# Storm
+
+
+
+
+​	
 
 
 
