@@ -979,11 +979,43 @@ Storm是一个开源的分布式实时计算系统，可以简单、可靠的处
   
   ```
 
-  
++ 重点
 
+  > conf.setNumWorkers(4) 表示设置了4个worker来执行整个topology的所有组件
+  >
+  > 
+  >
+  > builder.setBolt("boltA",new BoltA(),  4)  ---->指明 boltA组件的线程数excutors总共有4个
+  >
+  > builder.setBolt("boltB",new BoltB(),  4) ---->指明 boltB组件的线程数excutors总共有4个
+  >
+  > builder.setSpout("randomSpout",new RandomSpout(),  2) ---->指明randomSpout组件的线程数excutors总共有4个
+  >
+  > 
+  >
+  > -----意味着整个topology中执行所有组件的总线程数为4+4+2=10个
+  >
+  > ----worker数量是4个，有可能会出现这样的负载情况，  worker-1有2个线程，worker-2有2个线程，worker-3有3个线程，worker-4有3个线程
+  >
+  > 
+  >
+  > 如果指定某个组件的具体task并发实例数
+  >
+  > builder.setSpout("randomspout", new RandomWordSpout(), 4).setNumTasks(8);
+  >
+  > ----意味着对于这个组件的执行线程excutor来说，一个excutor将执行8/4=2个task
 
++ 结束进程
 
+  > ./storm kill xxxx
 
++ 继续学习
+
+  > 分布式共享锁
+  >
+  > 事务topology的实现机制和开发模式
+  >
+  > 在具体场景中的跟其他框架的整合 flume/kafka
 
 
 

@@ -21,7 +21,7 @@ public class TopoMain {
 		TopologyBuilder builder = new TopologyBuilder();
 
 		// 将我们的spout组件设置到topology中 4是并发数
-		// parallelism_hint:4  表示用4个exector来执行这个组件
+		// parallelism_hint:4  表示用4个exector（线程数）来执行这个组件
 		// setNumTask(8) 设置的是该组件执行时的并发task数量 也就是意味着1个exector运行2个task
 		builder.setSpout("randomspout", new RandomWordSpout(), 4);
 		// 将大写转换bolt组件设置到topology 并且指定他接受randomspout组件的消息 策略随机分组
@@ -37,7 +37,7 @@ public class TopoMain {
 
 		// 配置一些topology在集群中运行时的参数
 		Config conf = new Config();
-		conf.setNumWorkers(4);
+		conf.setNumWorkers(4);  // 设置4个worder来执行整个topology的所有组件
 		conf.setDebug(true);
 		conf.setNumAckers(0);
 
