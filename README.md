@@ -1035,11 +1035,15 @@ Storm是一个开源的分布式实时计算系统，可以简单、可靠的处
 >
 >bin``/kafka-server-start``.sh config``/server``.properties
 >
+>// 启动在后台
+>
+>bin``/kafka-server-start``.sh config``/server``.properties 1>/dev/null 2>&1 &
+>
 >// 创建话题
 >
 >bin``/kafka-topics``.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic   test
 >
-> bin``/kafka-topics``.sh --list --zookeeper -server localhost:2181
+>bin``/kafka-topics``.sh --list --zookeeper -server localhost:2181
 >
 >// 创建生产者 发送消息
 >
@@ -1048,6 +1052,10 @@ Storm是一个开源的分布式实时计算系统，可以简单、可靠的处
 >// 创建消费者读取消息
 >
 >bin/kafka-console-consumer.sh --zookeeper localhost:2181 --topic order_name --from-beginning
+>
+>//
+>
+>bin/kafka-topics.sh --describe --zookeeper localhost:2181 --topic mygirls
 
 ## 集群安装
 

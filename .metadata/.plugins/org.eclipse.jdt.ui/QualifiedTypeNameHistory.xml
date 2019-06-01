@@ -12,7 +12,6 @@
 <fullyQualifiedTypeName name="org.apache.hadoop.io.Text"/>
 <fullyQualifiedTypeName name="org.apache.hadoop.hive.ql.exec.UDF"/>
 <fullyQualifiedTypeName name="cn.itcast.bigdata.PhoneNBToArea"/>
-<fullyQualifiedTypeName name="java.util.HashMap"/>
 <fullyQualifiedTypeName name="org.codehaus.jettison.mapped.Configuration"/>
 <fullyQualifiedTypeName name="org.apache.hadoop.conf.Configuration"/>
 <fullyQualifiedTypeName name="org.apache.hadoop.hbase.HBaseConfiguration"/>
@@ -43,4 +42,17 @@
 <fullyQualifiedTypeName name="cn.itcast.storm.SuffixBolt"/>
 <fullyQualifiedTypeName name="backtype.storm.Config"/>
 <fullyQualifiedTypeName name="backtype.storm.StormSubmitter"/>
+<fullyQualifiedTypeName name="kafka.producer.ProducerConfig"/>
+<fullyQualifiedTypeName name="kafka.producer.KeyedMessage"/>
+<fullyQualifiedTypeName name="kafka.producer.Producer"/>
+<fullyQualifiedTypeName name="kafka.javaapi.producer.Producer"/>
+<fullyQualifiedTypeName name="java.util.Properties"/>
+<fullyQualifiedTypeName name="kafka.consumer.ConsumerConfig"/>
+<fullyQualifiedTypeName name="kafka.consumer.ConsumerConnector"/>
+<fullyQualifiedTypeName name="java.util.HashMap"/>
+<fullyQualifiedTypeName name="java.util.Map"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="kafka.consumer.KafkaStream"/>
+<fullyQualifiedTypeName name="kafka.message.MessageAndMetadata"/>
+<fullyQualifiedTypeName name="kafka.consumer.Consumer"/>
 </qualifiedTypeNameHistroy>
