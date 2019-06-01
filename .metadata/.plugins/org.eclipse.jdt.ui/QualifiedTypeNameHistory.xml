@@ -20,4 +20,27 @@
 <fullyQualifiedTypeName name="org.apache.hadoop.hbase.HTableDescriptor"/>
 <fullyQualifiedTypeName name="org.apache.hadoop.hbase.TableName"/>
 <fullyQualifiedTypeName name="org.apache.hadoop.hbase.HColumnDescriptor"/>
+<fullyQualifiedTypeName name="org.junit.Test"/>
+<fullyQualifiedTypeName name="org.apache.hadoop.hbase.client.HTable"/>
+<fullyQualifiedTypeName name="org.apache.hadoop.hbase.client.Put"/>
+<fullyQualifiedTypeName name="org.apache.hadoop.hbase.util.Bytes"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="backtype.storm.topology.base.BaseRichSpout"/>
+<fullyQualifiedTypeName name="backtype.storm.spout.SpoutOutputCollector"/>
+<fullyQualifiedTypeName name="java.util.Random"/>
+<fullyQualifiedTypeName name="org.apache.commons.lang.Validate"/>
+<fullyQualifiedTypeName name="backtype.storm.utils.Utils"/>
+<fullyQualifiedTypeName name="backtype.storm.tuple.Values"/>
+<fullyQualifiedTypeName name="backtype.storm.tuple.Fields"/>
+<fullyQualifiedTypeName name="backtype.storm.topology.base.BaseBasicBolt"/>
+<fullyQualifiedTypeName name="backtype.storm.tuple__init"/>
+<fullyQualifiedTypeName name="java.io.FileWriter"/>
+<fullyQualifiedTypeName name="java.util.UUID"/>
+<fullyQualifiedTypeName name="clojure.main"/>
+<fullyQualifiedTypeName name="backtype.storm.topology.TopologyBuilder"/>
+<fullyQualifiedTypeName name="cn.itcast.storm.RandomWordSpout"/>
+<fullyQualifiedTypeName name="cn.itcast.storm.UpperBolt"/>
+<fullyQualifiedTypeName name="cn.itcast.storm.SuffixBolt"/>
+<fullyQualifiedTypeName name="backtype.storm.Config"/>
+<fullyQualifiedTypeName name="backtype.storm.StormSubmitter"/>
 </qualifiedTypeNameHistroy>
