@@ -35,36 +35,42 @@
 
 ## Linux环境配置（windows下面的防火墙也要关闭）
 
-	### 修改主机名
+> 修改 主机名
+>
+> vim /etc/sysconfig/network
+> NETWORKING=yes
+> HOSTNAME=itcast    
 
-``` xml
-vim /etc/sysconfig/network
-NETWORKING=yes
-HOSTNAME=itcast    ###
-```
+或者 
+
+> hostnamectl set-hostname node01
 
 ### 修改IP
 
-```xml
+```cmd
 两种方式：
-		第一种：通过Linux图形界面进行修改（强烈推荐）
-			进入Linux图形界面 -> 右键点击右上方的两个小电脑 -> 点击Edit connections -> 选中当前网络System eth0 -> 点击edit按钮 -> 选择IPv4 -> method选择为manual -> 点击add按钮 -> 添加IP：192.168.1.101 子网掩码：255.255.255.0 网关：192.168.1.1 -> apply
+第一种：通过Linux图形界面进行修改（强烈推荐）
+进入Linux图形界面 -> 右键点击右上方的两个小电脑 -> 点击Edit connections -> 选中当前网络System eth0 -> 点击edit按钮 -> 选择IPv4 -> method选择为manual -> 点击add按钮 -> 添加IP：192.168.1.101 子网掩码：255.255.255.0 网关：192.168.1.1 -> apply
 	
-		第二种：修改配置文件方式（屌丝程序猿专用）
-			vim /etc/sysconfig/network-scripts/ifcfg-eth0
-			
-			DEVICE="eth0"
-			BOOTPROTO="static"               ###
-			HWADDR="00:0C:29:3C:BF:E7"
-			IPV6INIT="yes"
-			NM_CONTROLLED="yes"
-			ONBOOT="yes"
-			TYPE="Ethernet"
-			UUID="ce22eeca-ecde-4536-8cc2-ef0dc36d4a8c"
-			IPADDR="192.168.1.101"           ###
-			NETMASK="255.255.255.0"          ###
-			GATEWAY="192.168.1.1"            ###
+第二种：修改配置文件方式（屌丝程序猿专用）
+vim /etc/sysconfig/network-scripts/ifcfg-eth0
+
+DEVICE="eth0"
+BOOTPROTO="static"               ###
+HWADDR="00:0C:29:3C:BF:E7"
+IPV6INIT="yes"
+NM_CONTROLLED="yes"
+ONBOOT="yes"
+TYPE="Ethernet"
+UUID="ce22eeca-ecde-4536-8cc2-ef0dc36d4a8c"
+IPADDR="192.168.1.101"           ###
+NETMASK="255.255.255.0"          ###
+GATEWAY="192.168.1.1"            ###
 ```
+
+### 重启网络
+
+> service network restart
 
 ### 修改主机名和IP的映射关系
 
@@ -75,13 +81,67 @@ HOSTNAME=itcast    ###
 ### 关闭防火墙
 
 > #查看防火墙状态
-> 		service iptables status
-> 		#关闭防火墙
-> 		service iptables stop
-> 		#查看防火墙开机启动状态
-> 		chkconfig iptables --list
-> 		#关闭防火墙开机启动
-> 		chkconfig iptables off
+> service iptables status
+> #关闭防火墙
+> service iptables stop
+> #查看防火墙开机启动状态
+> chkconfig iptables --list
+> #关闭防火墙开机启动
+> chkconfig iptables off
+
+centos7
+
+> [root@node01 /]# systemctl stop firewalld
+> [root@node01 /]# systemctl disable firewalld
+>
+> systemctl status firevalld
+
+### 修改增强安全策略
+
+> vim /etc/selinux/config 
+>
+> 修改后
+>
+> SELINUX=disable
+
+### 配置hosts
+
+> vim /etc/hosts
+>
+> 192.168.52.100 node01
+>
+> 192.168.52.110 node02
+>
+> 192.168.52.120 node03
+
+### 添加普通用户
+
+> useradd hadoop
+>
+> #设置用户hadoop的密码
+>
+> passwd hadoop
+
+### 给普通用户root权限
+
+> visudo
+>
+> 
+>
+> ##Allow root to run any commands anywhere
+>
+> root    ALL=(ALL)       ALL
+> hadoop  ALL=(ALL)       ALL
+
+### 切换用户
+
+> su - hadoop
+
+### 创建文件夹并赋予权限
+
+> mkdir -p kkb/soft
+> mkdir -p kkb/install
+> chown -R hadoop:hadoop /kkb
 
 ### 重启linux
 
@@ -89,23 +149,30 @@ HOSTNAME=itcast    ###
 
 ## 安装JDK
 
-​	2.1上传alt+p 后出现sftp窗口，然后put d:\xxx\yy\ll\jdk-7u_65-i585.tar.gz
-​	
++ 上传alt+p 后出现sftp窗口，然后put d:\xxx\yy\ll\jdk-7u_65-i585.tar.gz​	
 
-	2.2解压jdk
-		#创建文件夹
-		mkdir /home/hadoop/app
-		#解压
-		tar -zxvf jdk-7u55-linux-i586.tar.gz -C /home/hadoop/app
-		
-	2.3将java添加到环境变量中
-		vim /etc/profile
-		#在文件最后添加
-		export JAVA_HOME=/home/hadoop/app/jdk-7u_65-i585
-		export PATH=$PATH:$JAVA_HOME/bin
-	
-		#刷新配置
-		source /etc/profile
++ 解压jdk
+
+  > #创建文件夹
+  > mkdir /hom e/hadoop/app
+  > #解压
+  > tar -zxvf jdk-7u55-linux-i586.tar.gz -C /home/hadoop/app
+
++ 将java添加到环境变量中
+
+  > vim /etc/profile
+  > #在文件最后添加
+  > JAVA_HOME=/kkb/install/jdk1.8.0_144
+  > HADOOP_HOME=/kkb/install/hadoop-2.6.0-cdh5.14.0
+  >
+  > PATH=$PATH:$HOME/bin:$JAVA_HOME/bin:$HADOOP_HOME/bin:$HADOOP_HOME/sbin
+  >
+  > export JAVA_HOME
+  > export HADOOP_HOME
+  > export PATH
+
+> #刷新配置
+> source /etc/profile
 
 ## 安装hadoop2.4.1
 
@@ -115,108 +182,238 @@ HOSTNAME=itcast    ###
 
 ### 配置hadoop
 
-```xml
-第一个：hadoop-env.sh
-		vim hadoop-env.sh
-		#第27行
-		export JAVA_HOME=/usr/java/jdk1.7.0_65
-第二个：core-site.xml
+#### 第一个：hadoop-env.sh
 
-	<!-- 指定HADOOP所使用的文件系统schema（URI），HDFS的老大（NameNode）的地址 -->
+```cmd
+vim hadoop-env.sh
+#第27行
+export JAVA_HOME=/usr/java/jdk1.7.0_65
+```
+#### 第二个：core-site.xml
+
+```xml
+<property>
+	<name>fs.defaultFS</name>
+	<value>hdfs://node01:8020</value>
+</property>
+<property>
+	<name>hadoop.tmp.dir</name>
+	<value>/home/hadoop/kkb/install/hadoop-2.6.0-cdh5.14.2/hadoopDatas/tempDatas</value>
+</property>
+<!--  缓冲区大小，实际工作中根据服务器性能动态调整 -->
+<property>
+	<name>io.file.buffer.size</name>
+	<value>4096</value>
+</property>
+<property>
+     <name>fs.trash.interval</name>
+     <value>10080</value>
+     <description>检查点被删除后的分钟数。 如果为零，垃圾桶功能将被禁用。 
+     该选项可以在服务器和客户端上配置。 如果垃圾箱被禁用服务器端，则检查客户端配置。 
+     如果在服务器端启用垃圾箱，则会使用服务器上配置的值，并忽略客户端配置值。</description>
+</property>
+
+<property>
+     <name>fs.trash.checkpoint.interval</name>
+     <value>0</value>
+     <description>垃圾检查点之间的分钟数。 应该小于或等于fs.trash.interval。 
+     如果为零，则将该值设置为fs.trash.interval的值。 每次检查指针运行时，
+     它都会从当前创建一个新的检查点，并删除比fs.trash.interval更早创建的检查点。</description>
+</property>
+```
+#### 第三个：hdfs-site.xml
+
+```xml
+<!-- NameNode存储元数据信息的路径，实际工作中，一般先确定磁盘的挂载目录，然后多个目录用，进行分割   --> 
+	<!--   集群动态上下线 
 	<property>
-		<name>fs.defaultFS</name>
-		<value>hdfs://weekend-1206-01:9000</value>
-	</property>
-	<!-- 指定hadoop运行时产生文件的存储目录 -->
-	<property>
-		<name>hadoop.tmp.dir</name>
-		<value>/home/hadoop/hadoop-2.4.1/tmp</value>
+		<name>dfs.hosts</name>
+		<value>/home/hadoop/kkb/install/hadoop-2.6.0-cdh5.14.2/etc/hadoop/accept_host</value>
 	</property>
 	
-第三个：hdfs-site.xml   hdfs-default.xml  (3)
-	<!-- 指定HDFS副本的数量 -->
+	<property>
+		<name>dfs.hosts.exclude</name>
+		<value>/home/hadoop/kkb/install/hadoop-2.6.0-cdh5.14.2/etc/hadoop/deny_host</value>
+	</property>
+	 -->
+	 
+	 <property>
+			<name>dfs.namenode.secondary.http-address</name>
+			<value>node01:50090</value>
+	</property>
+
+	<property>
+		<name>dfs.namenode.http-address</name>
+		<value>node01:50070</value>
+	</property>
+	<property>
+		<name>dfs.namenode.name.dir</name>
+		<value>file:///home/hadoop/kkb/install/hadoop-2.6.0-cdh5.14.2/hadoopDatas/namenodeDatas</value>
+	</property>
+	<!--  定义dataNode数据存储的节点位置，实际工作中，一般先确定磁盘的挂载目录，然后多个目录用，进行分割  -->
+	<property>
+		<name>dfs.datanode.data.dir</name>
+		<value>file:///home/hadoop/kkb/install/hadoop-2.6.0-cdh5.14.2/hadoopDatas/datanodeDatas</value>
+	</property>
+	
+	<property>
+		<name>dfs.namenode.edits.dir</name>
+		<value>file:///home/hadoop/kkb/install/hadoop-2.6.0-cdh5.14.2/hadoopDatas/dfs/nn/edits</value>
+	</property>
+	<property>
+		<name>dfs.namenode.checkpoint.dir</name>
+		<value>file:///home/hadoop/kkb/install/hadoop-2.6.0-cdh5.14.2/hadoopDatas/dfs/snn/name</value>
+	</property>
+	<property>
+		<name>dfs.namenode.checkpoint.edits.dir</name>
+		<value>file:///home/hadoop/kkb/install/hadoop-2.6.0-cdh5.14.2/hadoopDatas/dfs/nn/snn/edits</value>
+	</property>
 	<property>
 		<name>dfs.replication</name>
-		<value>1</value>
+		<value>3</value>
 	</property>
-	
-第四个：mapred-site.xml (mv mapred-site.xml.template mapred-site.xml)
-	mv mapred-site.xml.template mapred-site.xml
-	vim mapred-site.xml
-	<!-- 指定mr运行在yarn上 -->
 	<property>
+		<name>dfs.permissions</name>
+		<value>false</value>
+	</property>
+	<property>
+		<name>dfs.blocksize</name>
+		<value>134217728</value>
+	</property>
+```
+#### 第四个：mapred-site.xml
+
+```xml
+mv mapred-site.xml.template mapred-site.xml
+vim mapred-site.xml
+<!--指定运行mapreduce的环境是yarn -->
+<configuration>
+   <property>
 		<name>mapreduce.framework.name</name>
 		<value>yarn</value>
 	</property>
+
+	<property>
+		<name>mapreduce.job.ubertask.enable</name>
+		<value>true</value>
+	</property>
 	
-第五个：yarn-site.xml
-	<!-- 指定YARN的老大（ResourceManager）的地址 -->
+	<property>
+		<name>mapreduce.jobhistory.address</name>
+		<value>node01:10020</value>
+	</property>
+
+	<property>
+		<name>mapreduce.jobhistory.webapp.address</name>
+		<value>node01:19888</value>
+	</property>
+</configuration>
+```
+#### 第五个：yarn-site.xml
+```xml
+<configuration>
 	<property>
 		<name>yarn.resourcemanager.hostname</name>
-		<value>weekend-1206-01</value>
-    </property>
-        <!-- reducer获取数据的方式 -->
-    <property>
-            <name>yarn.nodemanager.aux-services</name>
-            <value>mapreduce_shuffle</value>
-     </property>
-	<!-- 解决资源不足的问题 -->
-	<property> 
-        <name>yarn.nodemanager.resource.memory-mb</name> 
-        <value>20480</value> 
-	</property> 
-	<property> 
-        <name>yarn.scheduler.minimum-allocation-mb</name> 
-        <value>2048</value> 
-	</property> 
-	<property> 
-        <name>yarn.nodemanager.vmem-pmem-ratio</name> 
-        <value>2.1</value> 
+		<value>node01</value>
 	</property>
- 	
-3.2将hadoop添加到环境变量
+	<property>
+		<name>yarn.nodemanager.aux-services</name>
+		<value>mapreduce_shuffle</value>
+	</property>
 
-vim /etc/proflie
-	export JAVA_HOME=/usr/java/jdk1.7.0_65
-	export HADOOP_HOME=/itcast/hadoop-2.4.1
-	export PATH=$PATH:$JAVA_HOME/bin:$HADOOP_HOME/bin:$HADOOP_HOME/sbin
-
-source /etc/profile
-
-3.3格式化namenode（是对namenode进行初始化）
-	hdfs namenode -format (hadoop namenode -format)
 	
-3.4启动hadoop
-	先启动HDFS
-	sbin/start-dfs.sh
-	
-	再启动YARN
-	sbin/start-yarn.sh
-	
-3.5验证是否启动成功
-	使用jps命令验证
-	27408 NameNode
-	28218 Jps
-	27643 SecondaryNameNode
-	28066 NodeManager
-	27803 ResourceManager
-	27512 DataNode
+	<property>
+		<name>yarn.log-aggregation-enable</name>
+		<value>true</value>
+	</property>
 
-	http://192.168.1.101:50070 （HDFS管理界面）
-	http://192.168.1.101:8088 （MR管理界面）
+
+	<property>
+		 <name>yarn.log.server.url</name>
+		 <value>http://node01:19888/jobhistory/logs</value>
+	</property>
+
+	<!--多长时间聚合删除一次日志 此处-->
+	<property>
+        <name>yarn.log-aggregation.retain-seconds</name>
+        <value>2592000</value><!--30 day-->
+	</property>
+	<!--时间在几秒钟内保留用户日志。只适用于如果日志聚合是禁用的-->
+	<property>
+        <name>yarn.nodemanager.log.retain-seconds</name>
+        <value>604800</value><!--7 day-->
+	</property>
+	<!--指定文件压缩类型用于压缩汇总日志-->
+	<property>
+        <name>yarn.nodemanager.log-aggregation.compression-type</name>
+        <value>gz</value>
+	</property>
+	<!-- nodemanager本地文件存储目录-->
+	<property>
+        <name>yarn.nodemanager.local-dirs</name>
+        <value>/kkb/install/hadoop-2.6.0-cdh5.14.2/hadoopDatas/yarn/local</value>
+	</property>
+	<!-- resourceManager  保存最大的任务完成个数 -->
+	<property>
+        <name>yarn.resourcemanager.max-completed-applications</name>
+        <value>1000</value>
+	</property>
+
+</configuration>
 ```
+#### 配置salves
+
+此文件用于配置集群有多少个数据节点,我们把node2，node3作为数据节点,node1作为集群管理节点.
+
+配置/kkb/install/hadoop-2.6.0-cdh5.14.2/etc/hadoop目录下的slaves
+
+```shell
+[root@node1 hadoop]# vi slaves 
+#将localhost这一行删除掉
+node01
+node02
+node03
+~     
+```
+
+### 创建文件存放目录
+
+node01机器上面创建以下目录
+
+```shell
+[root@node01 ~]# mkdir -p /kkb/install/hadoop-2.6.0-cdh5.14.2/hadoopDatas/tempDatas
+				mkdir -p /kkb/install/hadoop-2.6.0-cdh5.14.2/hadoopDatas/namenodeDatas
+[root@node01 ~]# mkdir -p /kkb/install/hadoop-2.6.0-cdh5.14.2/hadoopDatas/namenodeDatas
+[root@node01 ~]# mkdir -p /kkb/install/hadoop-2.6.0-cdh5.14.2/hadoopDatas/datanodeDatas
+[root@node01 ~]# mkdir -p /kkb/install/hadoop-2.6.0-cdh5.14.2/hadoopDatas/dfs/nn/edits
+[root@node01 ~]# mkdir -p /kkb/install/hadoop-2.6.0-cdh5.14.2/hadoopDatas/dfs/snn/name
+[root@node01 ~]# mkdir -p /kkb/install/hadoop-2.6.0-cdh5.14.2/hadoopDatas/dfs/nn/snn/edits
+[root@node01 ~]# 
+```
+
+### 克隆三台
+
+
 
 ## 配置ssh免登陆
 
-​	#生成ssh免登陆密钥
-​	#进入到我的home目录
-​	cd ~/.ssh
-
+	#生成ssh免登陆密钥
+	#进入到我的home目录
+	cd ~/.ssh
 	生成密钥对
+	### 三台机器上
 	ssh-keygen -t rsa （四个回车）
 	执行完这个命令后，会生成两个文件id_rsa（私钥）、id_rsa.pub（公钥）
 	将公钥拷贝到要免登陆的机器上
-	ssh-copy-id localhost
+	### 三台机器
+	ssh-copy-id node01
+	
+	### 最后在node01上
+	cd /home/hadoop/.ssh
+	scp authorized_keys node02:$PWD
+	scp authorized_keys node03:$PWD
+
+或者
 
 > scp id_rsa.pub Spark01:/home/hadoop
 >
@@ -232,9 +429,6 @@ source /etc/profile
 + 在linux的eclipse里面直接运行main方法，但是不要添加yarn相关的配置，也会提交给localjobrunner执行
         ----输入输出数据可以放在本地路径下（/home/hadoop/wc/srcdata/）
         ----输入输出数据也可以放在hdfs中(hdfs://weekend110:9000/wc/srcdata)  
-        
-        
-        
 
 ### 集群模式运行
 
