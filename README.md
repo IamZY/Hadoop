@@ -44,6 +44,8 @@
 或者 
 
 > hostnamectl set-hostname node01
+>
+> logout
 
 ### 修改IP
 
@@ -72,12 +74,6 @@ GATEWAY="192.168.1.1"            ###
 
 > service network restart
 
-### 修改主机名和IP的映射关系
-
-> vim /etc/hosts
->
-> 192.168.1.101	itcast
-
 ### 关闭防火墙
 
 > #查看防火墙状态
@@ -89,7 +85,7 @@ GATEWAY="192.168.1.1"            ###
 > #关闭防火墙开机启动
 > chkconfig iptables off
 
-centos7
++ centos7
 
 > [root@node01 /]# systemctl stop firewalld
 > [root@node01 /]# systemctl disable firewalld
@@ -176,9 +172,9 @@ centos7
 
 ## 安装hadoop2.4.1
 
-​	先上传hadoop的安装包到服务器上去/home/hadoop/
-​	注意：hadoop2.x的配置文件$HADOOP_HOME/etc/hadoop
-​	伪分布式需要修改5个配置文件
+先上传hadoop的安装包到服务器上去/home/hadoop/
+​注意：hadoop2.x的配置文件$HADOOP_HOME/etc/hadoop
+​伪分布式需要修改5个配置文件
 
 ### 配置hadoop
 
@@ -310,6 +306,7 @@ vim mapred-site.xml
 </configuration>
 ```
 #### 第五个：yarn-site.xml
+
 ```xml
 <configuration>
 	<property>
@@ -391,7 +388,43 @@ node01机器上面创建以下目录
 [root@node01 ~]# 
 ```
 
-### 克隆三台
+### 将第一台克隆三台
+
+### 修改hadoop安装目录的权限
+
+node01,node02，node03安装目录的权限
+
+node01节点操作
+
+```shell
+#1.修改目录所属用户和组为hadoop:hadoop
+[root@node01 ~]# chown -R hadoop:hadoop /kkb    // 注意一下home目录的访问级别 访问级别从最高目录都是可访问的(hadoop)
+[root@node01 ~]# 
+
+#2.修改目录所属用户和组的权限值为755
+[root@node01 ~]# chmod -R 755  /kkb
+[root@node01 ~]# 
+```
+
+node02节点操作
+
+```shell
+#1.修改目录所属用户和组为hadoop:hadoop
+[root@node02 ~]# chown -R hadoop:hadoop /kkb
+#2.修改目录所属用户和组的权限值为755
+[root@node02 ~]#  chmod -R 755  /kkb
+[root@node02 ~]# 
+```
+
+node03节点操作
+
+```shell
+#1.修改目录所属用户和组为hadoop:hadoop
+[root@node03 ~]# chown -R hadoop:hadoop /kkb
+#2.修改目录所属用户和组的权限值为755
+[root@node03 ~]#  chmod -R 755  /kkb
+
+```
 
 
 
@@ -418,6 +451,54 @@ node01机器上面创建以下目录
 > scp id_rsa.pub Spark01:/home/hadoop
 >
 > cat id_rsa.pub >> authorized_keys
+
+## 格式化Hadoop
+
+在第一台机器上进行操作
+
+```shell
+#切换
+[root@node01 ~]# su - hadoop
+[hadoop@node01 hadoop]$  hdfs namenode -format
+[hadoop@node01 ~]$ hdfs namenode -format
+19/08/23 04:32:34 INFO namenode.NameNode: STARTUP_MSG: 
+/************************************************************
+STARTUP_MSG: Starting NameNode
+STARTUP_MSG:   user = hadoop
+STARTUP_MSG:   host = node01.kaikeba.com/192.168.52.100
+STARTUP_MSG:   args = [-format]
+STARTUP_MSG:   version = 2.6.0-cdh5.14.2
+STARTUP_MSG:   classpath = /kkb/install/hadoop-2.6.0-19/08/23 04:32:35 INFO common.Storage: Storage directory /kkb/install/hadoop-2.6.0-
+#显示格式化成功。。。
+cdh5.14.2/hadoopDatas/namenodeDatas has been successfully formatted.
+19/08/23 04:32:35 INFO common.Storage: Storage directory /kkb/install/hadoop-2.6.0-cdh5.14.2/hadoopDatas/dfs/nn/edits has been successfully formatted.
+19/08/23 04:32:35 INFO namenode.FSImageFormatProtobuf: Saving image file /kkb/install/hadoop-2.6.0-cdh5.14.2/hadoopDatas/namenodeDatas/current/fsimage.ckpt_0000000000000000000 using no compression
+19/08/23 04:32:35 INFO namenode.FSImageFormatProtobuf: Image file /kkb/install/hadoop-2.6.0-cdh5.14.2/hadoopDatas/namenodeDatas/current/fsimage.ckpt_0000000000000000000 of size 323 bytes saved in 0 seconds.
+19/08/23 04:32:35 INFO namenode.NNStorageRetentionManager: Going to retain 1 images with txid >= 0
+19/08/23 04:32:35 INFO util.ExitUtil: Exiting with status 0
+19/08/23 04:32:35 INFO namenode.NameNode: SHUTDOWN_MSG: 
+#此处省略部分日志
+/************************************************************
+SHUTDOWN_MSG: Shutting down NameNode at node01.kaikeba.com/192.168.52.100
+************************************************************/
+[hadoop@node01 ~]$ 
+```
+
+## 启动集群
+
+在node01上启动
+
+> start-all.sh
+
+## Web UI
+
+> http://192.168.52.100:50070
+
+## 例子
+
+> hadoop jar ./kkb/install/hadoop-2.6.0-cdh5.14.2/share/hadoop/mapreduce/hadoop-mapreduce-examples-2.6.0-cdh5.14.2.jar wordcount /test/a.txt /test/output
+
+# HDFS
 
 ## MR程序的几种提交运行模式
 
