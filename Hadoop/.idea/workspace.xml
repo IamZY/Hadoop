@@ -13,20 +13,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pom.xml">
+      <file leaf-file-name="UserIdMain.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/ntuzy/hadoop/mapreduce/DataClean/UserId/UserIdMain.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2160">
-              <caret line="90" column="31" lean-forward="true" selection-start-line="90" selection-start-column="31" selection-end-line="90" selection-end-column="31" />
+            <state relative-caret-position="120">
+              <caret line="35" column="49" lean-forward="true" selection-start-line="35" selection-start-column="49" selection-end-line="35" selection-end-column="49" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="WordCountMap.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/ntuzy/hadoop/mapreduce/WordCountMap.java">
+      <file leaf-file-name="UserIdMap.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/ntuzy/hadoop/mapreduce/DataClean/UserId/UserIdMap.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="747">
-              <caret line="43" column="21" selection-start-line="43" selection-start-column="21" selection-end-line="43" selection-end-column="21" />
+            <state relative-caret-position="456">
+              <caret line="19" selection-start-line="19" selection-end-line="19" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -37,8 +40,8 @@
       <file leaf-file-name="WordCountReduce.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/ntuzy/hadoop/mapreduce/WordCountReduce.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="744">
-              <caret line="31" column="22" lean-forward="true" selection-start-line="31" selection-start-column="22" selection-end-line="31" selection-end-column="22" />
+            <state relative-caret-position="571">
+              <caret line="45" column="39" selection-start-line="45" selection-start-column="33" selection-end-line="45" selection-end-column="39" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -46,11 +49,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="WordCountMain.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="WordCountMain.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/ntuzy/hadoop/mapreduce/WordCountMain.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1032">
-              <caret line="43" column="14" lean-forward="true" selection-start-line="43" selection-start-column="14" selection-end-line="43" selection-end-column="14" />
+            <state relative-caret-position="619">
+              <caret line="78" column="36" lean-forward="true" selection-start-line="27" selection-start-column="8" selection-end-line="78" selection-end-column="36" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -58,23 +61,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CopyFileFromLocal.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/ntuzy/hadoop/hdfs/CopyFileFromLocal.java">
+      <file leaf-file-name="UserIdReduce.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/ntuzy/hadoop/mapreduce/DataClean/UserId/UserIdReduce.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="624">
-              <caret line="32" column="64" selection-start-line="32" selection-start-column="64" selection-end-line="32" selection-end-column="64" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CopyFileFromHdfs.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/ntuzy/hadoop/hdfs/CopyFileFromHdfs.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="504">
-              <caret line="21" column="59" selection-start-line="21" selection-start-column="59" selection-end-line="21" selection-end-column="59" />
+            <state relative-caret-position="456">
+              <caret line="19" column="33" selection-start-line="19" selection-start-column="33" selection-end-line="19" selection-end-column="33" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -98,9 +89,15 @@
         <option value="$PROJECT_DIR$/src/main/java/com/ntuzy/hadoop/hdfs/CopyFileFromLocal.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/ntuzy/hadoop/hdfs/CopyFileFromHdfs.java" />
         <option value="$APPLICATION_CONFIG_DIR$/idea64.exe.vmoptions" />
-        <option value="$PROJECT_DIR$/src/main/java/com/ntuzy/hadoop/mapreduce/WordCountMap.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/ntuzy/hadoop/mapreduce/WordCountReduce.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ntuzy/hadoop/mapreduce/WordCountMap.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/ntuzy/hadoop/mapreduce/WordCountMain.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ntuzy/hadoop/mapreduce/DataClean/WordCountMap.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ntuzy/hadoop/mapreduce/DataClean/WordCountMain.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ntuzy/hadoop/mapreduce/DataClean/DataCleanMain.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ntuzy/hadoop/mapreduce/DataClean/UserId/UserIdMap.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ntuzy/hadoop/mapreduce/DataClean/UserId/UserIdReduce.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ntuzy/hadoop/mapreduce/DataClean/UserId/UserIdMain.java" />
       </list>
     </option>
   </component>
@@ -148,14 +145,17 @@
     </navigator>
     <panes>
       <pane id="PackagesPane" />
-      <pane id="AndroidView" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="Hadoop" type="b2602c69:ProjectViewProjectNode" />
               <item name="Hadoop" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Hadoop" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Hadoop" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Hadoop" type="b2602c69:ProjectViewProjectNode" />
@@ -192,10 +192,33 @@
               <item name="hadoop" type="462c0819:PsiDirectoryNode" />
               <item name="mapreduce" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="Hadoop" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Hadoop" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="hadoop" type="462c0819:PsiDirectoryNode" />
+              <item name="mapreduce" type="462c0819:PsiDirectoryNode" />
+              <item name="DataClean" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Hadoop" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Hadoop" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="hadoop" type="462c0819:PsiDirectoryNode" />
+              <item name="mapreduce" type="462c0819:PsiDirectoryNode" />
+              <item name="DataClean" type="462c0819:PsiDirectoryNode" />
+              <item name="UserId" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="AndroidView" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -203,6 +226,12 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\src\Hadoop\Hadoop\src\main\java\com\ntuzy\hadoop\mapreduce\DataClean" />
+      <recent name="D:\src\Hadoop\Hadoop\resources" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -216,7 +245,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.CopyFileFromHdfs">
+  <component name="RunManager" selected="Application.Unnamed">
     <configuration name="CopyFileFromHdfs" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.ntuzy.hadoop.hdfs.CopyFileFromHdfs" />
       <module name="Hadoop" />
@@ -239,6 +268,30 @@
         </pattern>
       </extension>
     </configuration>
+    <configuration name="DataCleanMain" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="com.ntuzy.hadoop.mapreduce.DataClean.DataCleanMain" />
+      <module name="Hadoop" />
+      <option name="PROGRAM_PARAMETERS" value="D:\src\Hadoop\Hadoop\resources\sogou.100w.utf8 E:\DataClean" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+    </configuration>
+    <configuration name="Unnamed" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="com.ntuzy.hadoop.mapreduce.DataClean.UserId.UserIdMain" />
+      <module name="Hadoop" />
+      <option name="PROGRAM_PARAMETERS" value="D:\src\Hadoop\Hadoop\resources\sogou.100w.utf8 E:\userid" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+    </configuration>
+    <configuration name="WordCountMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.ntuzy.hadoop.mapreduce.WordCountMain" />
+      <module name="Hadoop" />
+      <option name="PROGRAM_PARAMETERS" value="E:/test.txt E:/output" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.ntuzy.hadoop.mapreduce.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+    </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
     </configuration>
@@ -257,30 +310,6 @@
         <value defaultName="singleModule" />
       </option>
       <patterns />
-    </configuration>
-    <configuration name="Hadoop [clean]" type="MavenRunConfiguration" factoryName="Maven" temporary="true">
-      <MavenSettings>
-        <option name="myGeneralSettings" />
-        <option name="myRunnerSettings" />
-        <option name="myRunnerParameters">
-          <MavenRunnerParameters>
-            <option name="profiles">
-              <set />
-            </option>
-            <option name="goals">
-              <list>
-                <option value="clean" />
-              </list>
-            </option>
-            <option name="pomFileName" value="pom.xml" />
-            <option name="profilesMap">
-              <map />
-            </option>
-            <option name="resolveToWorkspace" value="false" />
-            <option name="workingDirPath" value="$PROJECT_DIR$" />
-          </MavenRunnerParameters>
-        </option>
-      </MavenSettings>
     </configuration>
     <configuration name="Hadoop [deploy]" type="MavenRunConfiguration" factoryName="Maven" temporary="true">
       <MavenSettings>
@@ -353,19 +382,21 @@
       <listeners />
     </configuration>
     <list>
-      <item itemvalue="Maven.Hadoop [clean]" />
-      <item itemvalue="Maven.Hadoop [install]" />
-      <item itemvalue="Maven.Hadoop [deploy]" />
+      <item itemvalue="Application.DataCleanMain" />
+      <item itemvalue="Application.Unnamed" />
       <item itemvalue="Application.CopyFileFromLocal" />
       <item itemvalue="Application.CopyFileFromHdfs" />
+      <item itemvalue="Application.WordCountMain" />
+      <item itemvalue="Maven.Hadoop [install]" />
+      <item itemvalue="Maven.Hadoop [deploy]" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.WordCountMain" />
         <item itemvalue="Application.CopyFileFromHdfs" />
         <item itemvalue="Application.CopyFileFromLocal" />
         <item itemvalue="Maven.Hadoop [deploy]" />
         <item itemvalue="Maven.Hadoop [install]" />
-        <item itemvalue="Maven.Hadoop [clean]" />
       </list>
     </recent_temporary>
   </component>
@@ -386,17 +417,19 @@
       <workItem from="1578641614975" duration="98000" />
       <workItem from="1578641743096" duration="112000" />
       <workItem from="1578641883432" duration="2850000" />
+      <workItem from="1578711077308" duration="7409000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9891000" />
+    <option name="totallyTimeSpent" value="17300000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="2576" height="1416" extended-state="6" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Messages" order="7" />
       <window_info anchor="right" id="Palette&#9;" order="3" />
       <window_info id="Image Layers" order="2" />
       <window_info anchor="bottom" id="Java Enterprise" order="7" />
@@ -405,12 +438,13 @@
       <window_info anchor="right" id="Maven Projects" order="3" weight="0.2542373" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.2310635" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.37566948" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.29726562" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22539063" />
       <window_info anchor="right" id="Database" order="3" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32976282" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="2" />
@@ -419,11 +453,9 @@
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="Messages" order="7" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -433,6 +465,63 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2160">
+          <caret line="90" column="31" lean-forward="true" selection-start-line="90" selection-start-column="31" selection-end-line="90" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ntuzy/hadoop/mapreduce/WordCountMap.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1032">
+          <caret line="43" column="21" selection-start-line="43" selection-start-column="21" selection-end-line="43" selection-end-column="21" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ntuzy/hadoop/mapreduce/WordCountReduce.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="648">
+          <caret line="31" column="22" lean-forward="true" selection-start-line="31" selection-start-column="22" selection-end-line="31" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ntuzy/hadoop/hdfs/CopyFileFromLocal.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="624">
+          <caret line="32" column="64" selection-start-line="32" selection-start-column="64" selection-end-line="32" selection-end-column="64" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ntuzy/hadoop/hdfs/CopyFileFromHdfs.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="21" column="59" selection-start-line="21" selection-start-column="59" selection-end-line="21" selection-end-column="59" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ntuzy/hadoop/mapreduce/WordCountMain.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="840">
+          <caret line="43" column="14" lean-forward="true" selection-start-line="43" selection-start-column="14" selection-end-line="43" selection-end-column="14" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="552">
@@ -618,7 +707,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/ntuzy/hadoop/hdfs/CopyFileFromHdfs.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
+        <state relative-caret-position="288">
           <caret line="21" column="59" selection-start-line="21" selection-start-column="59" selection-end-line="21" selection-end-column="59" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -629,14 +718,50 @@
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2160">
-          <caret line="90" column="31" lean-forward="true" selection-start-line="90" selection-start-column="31" selection-end-line="90" selection-end-column="31" />
+          <caret line="90" column="31" selection-start-line="90" selection-start-column="31" selection-end-line="90" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/sogou.50w.utf8">
+      <provider selected="true" editor-type-id="LargeFileEditor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/sogou.2w.utf8">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ntuzy/hadoop/mapreduce/DataClean/WordCountReduce.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ntuzy/hadoop/mapreduce/DataClean/DataCleanMap.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="436">
+          <caret line="47" column="32" selection-start-line="47" selection-start-column="32" selection-end-line="47" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/sogou.100w.utf8">
+      <provider selected="true" editor-type-id="LargeFileEditor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ntuzy/hadoop/mapreduce/DataClean/DataCleanMain.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="21" column="28" lean-forward="true" selection-start-line="21" selection-start-column="28" selection-end-line="21" selection-end-column="28" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/ntuzy/hadoop/mapreduce/WordCountMap.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="747">
-          <caret line="43" column="21" selection-start-line="43" selection-start-column="21" selection-end-line="43" selection-end-column="21" />
+        <state relative-caret-position="324">
+          <caret line="24" column="26" selection-start-line="24" selection-start-column="26" selection-end-line="24" selection-end-column="26" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ntuzy/hadoop/mapreduce/DataClean/UserId/UserIdMap.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="456">
+          <caret line="19" selection-start-line="19" selection-end-line="19" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -645,8 +770,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/ntuzy/hadoop/mapreduce/WordCountReduce.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="744">
-          <caret line="31" column="22" lean-forward="true" selection-start-line="31" selection-start-column="22" selection-end-line="31" selection-end-column="22" />
+        <state relative-caret-position="571">
+          <caret line="45" column="39" selection-start-line="45" selection-start-column="33" selection-end-line="45" selection-end-column="39" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ntuzy/hadoop/mapreduce/DataClean/UserId/UserIdReduce.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="456">
+          <caret line="19" column="33" selection-start-line="19" selection-start-column="33" selection-end-line="19" selection-end-column="33" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -655,8 +790,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/ntuzy/hadoop/mapreduce/WordCountMain.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1032">
-          <caret line="43" column="14" lean-forward="true" selection-start-line="43" selection-start-column="14" selection-end-line="43" selection-end-column="14" />
+        <state relative-caret-position="619">
+          <caret line="78" column="36" lean-forward="true" selection-start-line="27" selection-start-column="8" selection-end-line="78" selection-end-column="36" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ntuzy/hadoop/mapreduce/DataClean/UserId/UserIdMain.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="35" column="49" lean-forward="true" selection-start-line="35" selection-start-column="49" selection-end-line="35" selection-end-column="49" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

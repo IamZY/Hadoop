@@ -1,8 +1,10 @@
-package com.ntuzy.hadoop.mapreduce;
+package com.ntuzy.hadoop.mapreduce.DataClean;
 
 import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.LongWritable;
+import org.apache.hadoop.io.NullWritable;
 import org.apache.hadoop.io.Text;
+import org.apache.hadoop.mapreduce.Counter;
 import org.apache.hadoop.mapreduce.Mapper;
 
 import java.io.IOException;
@@ -18,31 +20,39 @@ import java.io.IOException;
  * @Author IamZY
  * @create 2020/1/10 15:44
  */
-public class WordCountMap extends Mapper<LongWritable, Text, Text, IntWritable> {
+public class DataCleanMap extends Mapper<LongWritable, Text, Text, NullWritable> {
+
+
+    NullWritable nullValue = NullWritable.get();
 
     /**
      * 处理分片split中的每一行的数据；针对每行数据，会调用一次map方法
      * 在一次map方法调用时，从一行数据中，获得一个个单词word，再将每个单词word变成键值对形式(word, 1)输出出去
      * 输出的值最终写到本地磁盘中
-     * @param key 当前所读行行首相对于split分片开头的字节偏移量
-     * @param value  当前所读行
+     *
+     * @param key     当前所读行行首相对于split分片开头的字节偏移量
+     * @param value   当前所读行
      * @param context
      * @throws IOException
      * @throws InterruptedException
      */
     @Override
     protected void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException {
+
+        // 自定义计数器用于记录缺损记录数
+        Counter counter = context.getCounter("DataCleaning", "damagedRecord");
+
         //
         String line = value.toString();
 
         System.out.println(line);
 
-        String[] words = line.split(" ");
+        String[] filed = line.split("\t");
 
-        for (String word : words) {
-            //将每个单词word变成键值对形式(word, 1)输出出去
-            //同样，输出前，要将kout, vout包装成对应的可序列化类型，如String对应Text，int对应IntWritable
-            context.write(new Text(word), new IntWritable(1));
+        if (filed.length != 6) {
+            counter.increment(1l);
+        } else {
+            context.write(value, nullValue);
         }
 
 
