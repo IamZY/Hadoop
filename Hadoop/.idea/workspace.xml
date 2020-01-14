@@ -16,7 +16,7 @@
       <file leaf-file-name="UserIdMain.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/ntuzy/hadoop/mapreduce/DataClean/UserId/UserIdMain.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="648">
+            <state relative-caret-position="1176">
               <caret line="57" column="41" selection-start-line="57" selection-start-column="41" selection-end-line="57" selection-end-column="41" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -28,17 +28,53 @@
       <file leaf-file-name="WordCountReduce.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/ntuzy/hadoop/mapreduce/partition/WordCountReduce.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="254">
+            <state relative-caret-position="336">
               <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="WordCountMain.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="WordCountMain.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/ntuzy/hadoop/mapreduce/partition/WordCountMain.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="595">
-              <caret line="78" column="57" selection-start-line="78" selection-start-column="57" selection-end-line="78" selection-end-column="57" />
+            <state relative-caret-position="912">
+              <caret line="46" selection-start-line="46" selection-end-line="46" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SmallFiles2SequenceFile.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/ntuzy/hadoop/mapreduce/InputFormat/SmallFiles2SequenceFile.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="240">
+              <caret line="24" column="13" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="WholeFileInputFormat.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/ntuzy/hadoop/mapreduce/InputFormat/WholeFileInputFormat.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="240">
+              <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="WholeFileRecordReader.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/ntuzy/hadoop/mapreduce/InputFormat/WholeFileRecordReader.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="576">
+              <caret line="36" column="14" selection-start-line="36" selection-start-column="14" selection-end-line="36" selection-end-column="14" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CopyFileFromLocal.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/ntuzy/hadoop/mapreduce/compress/CopyFileFromLocal.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="24">
+              <caret line="1" selection-start-line="1" selection-end-line="1" />
             </state>
           </provider>
         </entry>
@@ -46,8 +82,8 @@
       <file leaf-file-name="CustomPartition.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/ntuzy/hadoop/mapreduce/partition/CustomPartition.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="547">
-              <caret line="28" column="30" lean-forward="true" selection-start-line="28" selection-start-column="30" selection-end-line="28" selection-end-column="30" />
+            <state relative-caret-position="552">
+              <caret line="28" column="30" selection-start-line="28" selection-start-column="30" selection-end-line="28" selection-end-column="30" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -58,32 +94,8 @@
       <file leaf-file-name="WordCountMap.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/ntuzy/hadoop/mapreduce/partition/WordCountMap.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="254">
+            <state relative-caret-position="360">
               <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UserIdMap.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/ntuzy/hadoop/mapreduce/DataClean/UserId/UserIdMap.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="456">
-              <caret line="19" selection-start-line="19" selection-end-line="19" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="WordCountReduce.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/ntuzy/hadoop/mapreduce/WordCountReduce.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="571">
-              <caret line="45" column="39" selection-start-line="45" selection-start-column="33" selection-end-line="45" selection-end-column="39" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -91,20 +103,8 @@
       <file leaf-file-name="WordCountMain.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/ntuzy/hadoop/mapreduce/WordCountMain.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="619">
-              <caret line="78" column="36" lean-forward="true" selection-start-line="27" selection-start-column="8" selection-end-line="78" selection-end-column="36" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UserIdReduce.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/ntuzy/hadoop/mapreduce/DataClean/UserId/UserIdReduce.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="456">
-              <caret line="19" column="33" selection-start-line="19" selection-start-column="33" selection-end-line="19" selection-end-column="33" />
+            <state relative-caret-position="1680">
+              <caret line="78" column="36" selection-start-line="27" selection-start-column="8" selection-end-line="78" selection-end-column="36" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -140,6 +140,8 @@
         <option value="$PROJECT_DIR$/src/main/java/com/ntuzy/hadoop/mapreduce/partition/WordCountMap.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/ntuzy/hadoop/mapreduce/partition/CustomPartition.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/ntuzy/hadoop/mapreduce/partition/WordCountMain.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ntuzy/hadoop/mapreduce/InputFormat/SmallFiles2SequenceFile.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ntuzy/hadoop/mapreduce/compress/CopyFileFromLocal.java" />
       </list>
     </option>
   </component>
@@ -175,9 +177,9 @@
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths />
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="395" />
+    <option name="y" value="171" />
     <option name="width" value="2047" />
     <option name="height" value="1125" />
   </component>
@@ -187,6 +189,8 @@
     </navigator>
     <panes>
       <pane id="PackagesPane" />
+      <pane id="Scope" />
+      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -242,14 +246,22 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="hadoop" type="462c0819:PsiDirectoryNode" />
               <item name="mapreduce" type="462c0819:PsiDirectoryNode" />
-              <item name="partition" type="462c0819:PsiDirectoryNode" />
+              <item name="compress" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Hadoop" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Hadoop" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="hadoop" type="462c0819:PsiDirectoryNode" />
+              <item name="mapreduce" type="462c0819:PsiDirectoryNode" />
+              <item name="InputFormat" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="AndroidView" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -257,9 +269,12 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\src\Hadoop\Hadoop\src\main\java\com\ntuzy\hadoop\mapreduce" />
+      <recent name="D:\src\Hadoop\Hadoop\src\main\java\com\ntuzy\hadoop\mapreduce\InputFormat" />
       <recent name="D:\src\Hadoop\Hadoop\src\main\java\com\ntuzy\hadoop\mapreduce\partition" />
       <recent name="D:\src\Hadoop\Hadoop\src\main\java\com\ntuzy\hadoop\mapreduce\DataClean" />
       <recent name="D:\src\Hadoop\Hadoop\resources" />
@@ -449,20 +464,20 @@
       <workItem from="1578641614975" duration="98000" />
       <workItem from="1578641743096" duration="112000" />
       <workItem from="1578641883432" duration="2850000" />
-      <workItem from="1578711077308" duration="10150000" />
+      <workItem from="1578711077308" duration="10841000" />
+      <workItem from="1578882767212" duration="3485000" />
+      <workItem from="1578987147158" duration="6000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="20041000" />
+    <option name="totallyTimeSpent" value="24223000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="2576" height="1416" extended-state="6" />
-    <editor active="true" />
+    <frame x="395" y="171" width="2047" height="1125" extended-state="0" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Messages" order="7" />
       <window_info anchor="right" id="Palette&#9;" order="3" />
       <window_info id="Image Layers" order="2" />
       <window_info anchor="bottom" id="Java Enterprise" order="7" />
@@ -471,13 +486,12 @@
       <window_info anchor="right" id="Maven Projects" order="3" weight="0.2542373" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.37566948" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.37566948" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16796875" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21171837" />
       <window_info anchor="right" id="Database" order="3" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32976282" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="2" />
@@ -486,9 +500,11 @@
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="Messages" order="7" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32976282" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -498,6 +514,20 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ntuzy/hadoop/mapreduce/DataClean/UserId/UserIdReduce.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="19" column="33" selection-start-line="19" selection-start-column="33" selection-end-line="19" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ntuzy/hadoop/mapreduce/partition/WordCountMain.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1152">
+          <caret line="56" column="70" lean-forward="true" selection-start-line="56" selection-start-column="70" selection-end-line="56" selection-end-column="70" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2160">
@@ -509,9 +539,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1032">
           <caret line="43" column="21" selection-start-line="43" selection-start-column="21" selection-end-line="43" selection-end-column="21" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -539,9 +566,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="288">
           <caret line="21" column="59" selection-start-line="21" selection-start-column="59" selection-end-line="21" selection-end-column="59" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -576,9 +600,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="288">
           <caret line="21" column="59" selection-start-line="21" selection-start-column="59" selection-end-line="21" selection-end-column="59" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -610,9 +631,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="288">
           <caret line="21" column="59" selection-start-line="21" selection-start-column="59" selection-end-line="21" selection-end-column="59" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -644,9 +662,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="288">
           <caret line="21" column="59" selection-start-line="21" selection-start-column="59" selection-end-line="21" selection-end-column="59" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -671,9 +686,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="288">
           <caret line="21" column="59" lean-forward="true" selection-start-line="21" selection-start-column="59" selection-end-line="21" selection-end-column="59" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -698,9 +710,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="144">
           <caret line="15" column="25" lean-forward="true" selection-start-line="15" selection-start-column="25" selection-end-line="15" selection-end-column="25" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -742,9 +751,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="288">
           <caret line="21" column="59" selection-start-line="21" selection-start-column="59" selection-end-line="21" selection-end-column="59" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -761,9 +767,7 @@
     <entry file="file://$PROJECT_DIR$/resources/sogou.2w.utf8">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ntuzy/hadoop/mapreduce/DataClean/WordCountReduce.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ntuzy/hadoop/mapreduce/DataClean/WordCountReduce.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/ntuzy/hadoop/mapreduce/DataClean/DataCleanMap.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="436">
@@ -785,25 +789,19 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="324">
           <caret line="24" column="26" selection-start-line="24" selection-start-column="26" selection-end-line="24" selection-end-column="26" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/ntuzy/hadoop/mapreduce/DataClean/UserId/UserIdMap.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="456">
+        <state relative-caret-position="336">
           <caret line="19" selection-start-line="19" selection-end-line="19" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/ntuzy/hadoop/mapreduce/WordCountReduce.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="571">
+        <state relative-caret-position="984">
           <caret line="45" column="39" selection-start-line="45" selection-start-column="33" selection-end-line="45" selection-end-column="39" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -813,18 +811,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/ntuzy/hadoop/mapreduce/DataClean/UserId/UserIdReduce.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="456">
+        <state relative-caret-position="360">
           <caret line="19" column="33" selection-start-line="19" selection-start-column="33" selection-end-line="19" selection-end-column="33" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/ntuzy/hadoop/mapreduce/WordCountMain.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="619">
-          <caret line="78" column="36" lean-forward="true" selection-start-line="27" selection-start-column="8" selection-end-line="78" selection-end-column="36" />
+        <state relative-caret-position="1680">
+          <caret line="78" column="36" selection-start-line="27" selection-start-column="8" selection-end-line="78" selection-end-column="36" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -833,7 +828,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/ntuzy/hadoop/mapreduce/DataClean/UserId/UserIdMain.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="648">
+        <state relative-caret-position="1176">
           <caret line="57" column="41" selection-start-line="57" selection-start-column="41" selection-end-line="57" selection-end-column="41" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -843,22 +838,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/ntuzy/hadoop/mapreduce/partition/WordCountReduce.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="254">
+        <state relative-caret-position="336">
           <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/ntuzy/hadoop/mapreduce/partition/WordCountMap.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="254">
+        <state relative-caret-position="360">
           <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/ntuzy/hadoop/mapreduce/partition/CustomPartition.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="547">
-          <caret line="28" column="30" lean-forward="true" selection-start-line="28" selection-start-column="30" selection-end-line="28" selection-end-column="30" />
+        <state relative-caret-position="552">
+          <caret line="28" column="30" selection-start-line="28" selection-start-column="30" selection-end-line="28" selection-end-column="30" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -867,8 +862,36 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/ntuzy/hadoop/mapreduce/partition/WordCountMain.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="595">
-          <caret line="78" column="57" selection-start-line="78" selection-start-column="57" selection-end-line="78" selection-end-column="57" />
+        <state relative-caret-position="912">
+          <caret line="46" selection-start-line="46" selection-end-line="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ntuzy/hadoop/mapreduce/InputFormat/SmallFiles2SequenceFile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="24" column="13" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ntuzy/hadoop/mapreduce/InputFormat/WholeFileInputFormat.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ntuzy/hadoop/mapreduce/InputFormat/WholeFileRecordReader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="576">
+          <caret line="36" column="14" selection-start-line="36" selection-start-column="14" selection-end-line="36" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ntuzy/hadoop/mapreduce/compress/CopyFileFromLocal.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="24">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
         </state>
       </provider>
     </entry>
