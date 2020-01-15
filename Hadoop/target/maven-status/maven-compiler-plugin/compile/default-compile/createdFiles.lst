@@ -1,0 +1,4 @@
+com\ntuzy\hadoop\mapreduce\secondarysort\SecondarySort.class
+com\ntuzy\hadoop\mapreduce\secondarysort\Person.class
+com\ntuzy\hadoop\mapreduce\secondarysort\SecondarySort$MyReduce.class
+com\ntuzy\hadoop\mapreduce\secondarysort\SecondarySort$MyMap.class
